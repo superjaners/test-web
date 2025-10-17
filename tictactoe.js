@@ -248,6 +248,8 @@ function randomPick() {
         let button = document.createElement("button")
         button.id = "reset"
         button.textContent = "Reset"
+		button.style.width = "64px"
+    	button.style.margin = "auto"
         button.addEventListener("click", () => {
             reset()
         })
@@ -314,3 +316,4 @@ function aiTurn() {
 
 
 document.addEventListener("DOMContentLoaded", addButtons);
+
