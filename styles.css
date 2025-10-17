@@ -28,8 +28,29 @@ main figure {
 #gay {
     background-color:azure;
     color: #333;
-    padding: 10px 20px;
+    padding: 20px 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.tttbutton {
+  padding: 0;
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 64px);
+  grid-template-rows: repeat(3, 64px);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
