@@ -22,6 +22,8 @@ function addButtons() {
     for (let i = 0; i < 9; i++) {
         let button = document.createElement("button")
         button.className = "tttbutton"
+		button.style.width = "64px"
+		button.style.height = "64px"
         button.addEventListener("click", () => {
             setButton(button)
         })
@@ -309,5 +311,6 @@ function aiTurn() {
         turn = 0
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", addButtons);
