@@ -44,6 +44,10 @@ main figure {
   align-items: center;
 }
 
+.tttbutton img {
+  width: 48px;
+  height: 48px;
+}
 
 .grid {
   display: grid;
@@ -53,4 +57,5 @@ main figure {
   justify-content: center;
   align-items: center;
   margin: auto;
+
 }
