@@ -83,15 +83,14 @@ function thereIsAWinner(player) {
         startingTile += 1;
     }
 
-    var gap = [4, 2];
-    var element = 0;
+    var gap = 4;
     startingTile = 0;
     for (let i = 0; i < 2; i++) {
-        if (grid[startingTile].tile + grid[startingTile + gap[element]].tile + grid[startingTile + (gap[element] * 2)].tile === player + player + player) {
+        if (grid[startingTile].tile + grid[startingTile + gap].tile + grid[startingTile + (gap * 2)].tile === player + player + player) {
             return true;
         }
         startingTile = 2;
-        element = 1;
+        gap = 2;
     }
 
     return false
@@ -127,13 +126,12 @@ function AIchanceToBlockOrWin(player) {
         startingTile += 1;
     }
 
-    var gap = [4, 2];
-    var element = 0;
+    var gap = 4;
     startingTile = 0;
     for (let i = 0; i < 2; i++) {
-        if (grid[startingTile].tile + grid[startingTile + gap[element]].tile + grid[startingTile + (gap[element] * 2)].tile === player + player) {
+        if (grid[startingTile].tile + grid[startingTile + gap].tile + grid[startingTile + (gap * 2)].tile === player + player) {
             for (let index = 0; index < 3; index++) {
-                let currentTile = grid[startingTile + (gap[element] * index)];
+                let currentTile = grid[startingTile + (gap * index)];
                 if (currentTile.tile === "") {
                     changeTile(currentTile);
                     return true;
@@ -141,7 +139,7 @@ function AIchanceToBlockOrWin(player) {
             }
         }
         startingTile = 2;
-        element = 1;
+        gap = 2;
     }
 
     return false
@@ -180,25 +178,21 @@ function playerPicked(button) {
 }
 
 function aiTurn() {
-    if (AIchanceToBlockOrWin("o")) {
-        gameOver(1);
-        return;
-    } else if (AIchanceToBlockOrWin("x")) {
-        turn += 1;
-        return;
-    } else if (AIrandomPick()) {
-        if (thereIsAWinner("x")) {
-            gameOver(0);
-            return;
-        } else if (thereIsAWinner("o")) {
-            gameOver(1);
-            return;
-        }
-        turn += 1;
-    } else {
-        gameOver(2);
-        return;
-    }
+  if (AIchanceToBlockOrWin("o")) return gameOver(1);
+
+  if (AIchanceToBlockOrWin("x")) {
+    turn += 1;
+    return;
+  }
+
+  if (AIrandomPick()) {
+    if (thereIsAWinner("x")) return gameOver(0);
+    if (thereIsAWinner("o")) return gameOver(1);
+    turn += 1;
+    return;
+  }
+
+  gameOver(2);
 }
 
 document.addEventListener("DOMContentLoaded", addButtons);
