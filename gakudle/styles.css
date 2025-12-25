@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+}
+
+.suggestion {
+    width: 224px;
+    height: 32px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+}
+
+#inputArea {
+    position: inherit;
+}
+
+#question {
+    margin-top: 64px;
+    margin-bottom: 64px;
+    text-align: center;
+}
+
+#input {
+    width: 224px;
+    height: 32px;
+    padding-left: 4px;
+}
+
+#submit {
+    margin-left: 8px;
+    width: 64px;
+    height: 32px;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+#list {
+    position: absolute;
+}
+
+#hisory {
+    margin-top: 64px;
+}
