@@ -12,6 +12,16 @@ body {
     justify-content: center;
 }
 
+@font-face {
+    font-family: gakuBold;
+    src: url(fonts/IBMPlexSansJP-Bold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: gaku;
+    src: url(fonts/IBMPlexSansJP-Medium.ttf) format("truetype");
+}
+
 .suggestion {
     width: 224px;
     height: 32px;
@@ -22,13 +32,28 @@ body {
 }
 
 #inputArea {
-    position: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-#question {
+#jp {
     margin-top: 64px;
     margin-bottom: 64px;
     text-align: center;
+    font-family: "gakuBold", Helvetica;
+    font-size: 64px;
+    word-break: keep-all;
+    overflow-wrap: normal;
+}
+
+#en {
+    text-align: center;
+    margin-bottom: 64px;
+    font-family: "gaku", Helvetica;
+    font-size: 24px;
 }
 
 #input {
@@ -38,7 +63,7 @@ body {
 }
 
 #submit {
-    margin-left: 8px;
+    margin-top: 24px;
     width: 64px;
     height: 32px;
     font-size: 16px;
@@ -47,8 +72,17 @@ body {
 
 #list {
     position: absolute;
+    top: 32px;
+}
+
+#error {
+    text-align: center;
+    position: absolute;
+    padding-top: 2px;
+    font-size: 12px;
 }
 
 #hisory {
     margin-top: 64px;
+    text-align: center;
 }
