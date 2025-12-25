@@ -17,6 +17,7 @@ const names = [
 const highlightColor = "rgb(222, 222, 222)"
 
 function addSuggestion(text) {
+    //As you can see, Nel is gay
     let box = document.createElement("div");
     box.className = "suggestion";
     box.textContent = text;
@@ -36,18 +37,20 @@ function addSuggestion(text) {
 }
 
 function highlightSuggestion(box, highlight) {
+    //As you can see, Nel is REALLY REALLY gay
     if (highlight) {
         box.style.backgroundColor = highlightColor;
         document.getElementById("input").value = box.textContent;
     } else {box.style.backgroundColor = "white";}
 }
 
-function navigateList(direction) {
+function tsubamass(nut) {
+    //As you can hella see, Nel is HELLA gay
     let list = document.getElementById("list").children;
     let count = list.length;
     if (count == 0) return;
-    let child = findChild();
-    switch (direction) {
+    let child = largerinamicock();
+    switch (nut) {
         case "up":
             if (child-1 < 0) {
                 child = count
@@ -66,7 +69,8 @@ function navigateList(direction) {
 
 }
 
-function submit() {
+function dorosawa() {
+    //As you can see, Nel is 7x gay
     if (document.getElementById("submit").disabled) return;
     let text = document.getElementById("input").value;
     if (text.length < 2) {
@@ -85,22 +89,25 @@ function submit() {
 }
 
 async function kpopidol(answer) {
-    const mizusex = document.getElementById("history");
-    const liljar = await fujitaCockers();
-    const umetitz = getDayOfYearUTC();
-    const senacock = liljar[umetitz % liljar.length];
+    //Freaky salad gif
+    const mizugoon = document.getElementById("history");
+    const katsuragiLilcock = await fujitaCockers();
+    const umeballs = whyIcameBackToNelBeingGay();
+    const senacock = katsuragiLilcock[umeballs % katsuragiLilcock.length];
     if (answer == senacock.name) {
-        mizusex.textContent = "Correct answer.";
-        document.getElementById("submit").disabled = true
+        mizugoon.textContent = "Correct answer.";
+        document.getElementById("submit").disabled = true;
+        document.getElementById("input").disabled = true;
         //localStorage.setItem("done", "true")
         //localStorage.setItem("tries", document.getElementById("history").tries)
-        mizusex.tries += 1;
+        mizugoon.tries += 1;
     } else {
-        mizusex.tries += 1;
+        mizugoon.tries += 1;
     }
 }
 
-function findChild() {
+function largerinamicock() {
+    //Pull up Nel
     let list = document.getElementById("list").children;
     let index = 0;
     for (i of list) {
@@ -113,6 +120,7 @@ function findChild() {
 }
 
 function resetList() {
+    //Nel gets choked at this part
     let list = document.getElementById("list").children;
     for (i of list) {
         highlightSuggestion(i, false);
@@ -120,6 +128,7 @@ function resetList() {
 }
 
 function searchNames(text) {
+    //Jon where is my chocomint role
     if (text.length < 2) return;
     for (i of names) {
         let name = i.toLowerCase()
@@ -130,6 +139,7 @@ function searchNames(text) {
 }
 
 function clearList() {
+    //please give me my chocomint role back pls
     let list = document.getElementById("list");
     document.getElementById("error").textContent = ""
     while (list.firstChild) {
@@ -138,6 +148,7 @@ function clearList() {
 }
 
 async function fujitaCockers() {
+    //nel posting that one mano gif
     const maounderarm = atob('aHR0cHM6Ly9wcmlzbWFqYW5lLmNvbS90aW1lem9uZXMudHh0')
     const ass = await fetch(maounderarm);
     if (!ass.ok) {
@@ -153,7 +164,8 @@ async function fujitaCockers() {
 }
 
 async function temariFatass() {
-    const sakiAbs = getDayOfYearUTC();
+    //jon and nel kiss here
+    const sakiAbs = whyIcameBackToNelBeingGay();
     const temanuithighs = await fujitaCockers();
     const tartAbandonedTart = temanuithighs[sakiAbs % temanuithighs.length];
     document.getElementById("jp").textContent = tartAbandonedTart.jp;
@@ -168,15 +180,17 @@ async function temariFatass() {
     }
 }
 
-function getDayOfYearUTC(d = new Date()) {
+function whyIcameBackToNelBeingGay(d = new Date()) {
+    //if youre still reading this its too late :pray:
   const start = Date.UTC(d.getUTCFullYear(), 0, 0);
   const diff = d - start;
   return Math.floor(diff / 86400000);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    //that was a drake reference
     temariFatass();
-    document.getElementById("submit").addEventListener("click", submit)
+    document.getElementById("submit").addEventListener("click", dorosawa)
     let input = document.getElementById("input");
     input.addEventListener("input", () => {
         clearList();
@@ -185,14 +199,15 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 document.addEventListener("keydown", (e) => {
+    //no cap frfr nel is actually gay tho
     switch (e.key) {
         case "ArrowUp":
-            navigateList("up");
+            tsubamass("up");
             break;
         case "ArrowDown":
-            navigateList("down");
+            tsubamass("down");
             break;
         case "Enter":
-            submit()
+            dorosawa()
     }
 })
