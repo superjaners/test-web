@@ -1,1 +1,392 @@
-const a0_0x1994ce=a0_0x16f1;(function(_0x4e820e,_0x24c07d){const _0x8642f4=a0_0x16f1,_0x3bbda1=_0x4e820e();while(!![]){try{const _0x46115c=parseInt(_0x8642f4(0x11f))/0x1+parseInt(_0x8642f4(0x11d))/0x2+-parseInt(_0x8642f4(0x126))/0x3*(parseInt(_0x8642f4(0x14c))/0x4)+parseInt(_0x8642f4(0x110))/0x5*(parseInt(_0x8642f4(0x16b))/0x6)+-parseInt(_0x8642f4(0xfa))/0x7*(-parseInt(_0x8642f4(0xf7))/0x8)+-parseInt(_0x8642f4(0x14f))/0x9*(parseInt(_0x8642f4(0x16c))/0xa)+-parseInt(_0x8642f4(0x10d))/0xb;if(_0x46115c===_0x24c07d)break;else _0x3bbda1['push'](_0x3bbda1['shift']());}catch(_0xc62bc0){_0x3bbda1['push'](_0x3bbda1['shift']());}}}(a0_0x4fdb,0xa7e5f));function a0_0x16f1(_0x2a0686,_0x15af02){_0x2a0686=_0x2a0686-0xf1;const _0x4fdbad=a0_0x4fdb();let _0x16f1e4=_0x4fdbad[_0x2a0686];return _0x16f1e4;}var a0_0x1c15b1=[a0_0x1994ce(0x167),'Tsukimura\x20Temari',a0_0x1994ce(0x146),a0_0x1994ce(0xfe),a0_0x1994ce(0x158),a0_0x1994ce(0x159),a0_0x1994ce(0x10c),'Shiun\x20Sumika','Shinosawa\x20Hiro',a0_0x1994ce(0x133),a0_0x1994ce(0x111),'Hataya\x20Misuzu',a0_0x1994ce(0x13e)];function a0_0x4fdb(){const _0x544af1=['ArrowUp','Bust','color','down','suggestion','Himesaki\x20Rinami','div','key','getUTCFullYear','done','72px','textContent','decode','input','animate','rgb(255,\x20255,\x20255)','Juo\x20Sena','rgb(155,\x20155,\x20155)','floor','msg','bust','nah','\x20to\x20guess\x20today\x27s\x20character.','Left\x0aHanded','Fujita\x20Kotone','backgroundImage','getElementById','click','rgb(83,\x2083,\x2083)\x20solid\x202px','height','6416poymJI','hint','backgroundColor','9CAcrUT','find','Height','children','push','removeChild','mouseenter','groups','url(imgs/arrow-up.svg)','Arimura\x20Mao','Katsuragi\x20Lilja','getItem','disabled','default','length','Both\x0aHanded','pointer','log','aHR0cHM6Ly9wcmlzbWFqYW5lLmNvbS90aW1lem9uZXMudHh0','error','keydown','target','list','UTC','Hanami\x20Saki','appendChild','from','cssText','54rHQCfm','4166180fyeEUx','currentTarget','addEventListener','DOMContentLoaded','hidden','style','rgb(95,\x2095,\x2095)','true','unit','181096XjWknc','Enter','type','147rAKGBK','Right','rgb(218,\x20163,\x2053)','stringify','Amaya\x20Tsubame','history','parse','samesame','charCodeAt','classList','inputArea','shit\x20fucked\x20up','setItem','hand','why\x20i\x20came\x20back\x20to\x20nel\x20be\x20gay','aHR0cHM6Ly9wcmlzbWFqYW5lLmNvbS9jaGFyYWN0ZXJEYXRhLmpzb24=','value','historyGroup','Kuramoto\x20China','16538214JKorAm','tries','json','670840oRubjo','Hanami\x20Ume','filter','names','woah','includes','firstChild','rgba(159,\x2039,\x2039,\x201)','url(\x22imgs/','rgba(0,0,0,0)','createElement','marginBottom','name','2250340ADogHT','rgb(222,\x20222,\x20222)','568060DuUlfm','weight','border','Both','className','toLowerCase','kuramototaiwan','1437npLxaU','rgb(142,\x2090,\x20224)','add','day','removeItem','Right\x0aHanded','text','mouseleave'];a0_0x4fdb=function(){return _0x544af1;};return a0_0x4fdb();}const a0_0x1272a9=a0_0x1994ce(0x11e);var a0_0x2eda54=0x0;function a0_0x367469(_0x5cb230){const _0x35ade6=a0_0x1994ce;let _0xb8347a=document[_0x35ade6(0x11a)](_0x35ade6(0x134));_0xb8347a[_0x35ade6(0x123)]=_0x35ade6(0x132),_0xb8347a[_0x35ade6(0x139)]=_0x5cb230,_0xb8347a[_0x35ade6(0x16e)](_0x35ade6(0x155),()=>{a0_0x29e7a5(_0xb8347a,!![]);}),_0xb8347a[_0x35ade6(0x16e)](_0x35ade6(0x12d),()=>{a0_0x29e7a5(_0xb8347a,![]);}),_0xb8347a[_0x35ade6(0x16e)](_0x35ade6(0x149),_0x5dae8f=>{const _0x1ad088=_0x35ade6;_0x5dae8f[_0x1ad088(0x164)]==_0x5dae8f[_0x1ad088(0x16d)]&&(document[_0x1ad088(0x148)](_0x1ad088(0x13b))[_0x1ad088(0x10a)]=_0x5cb230,a0_0x5a79ad());}),document['getElementById'](_0x35ade6(0x165))[_0x35ade6(0x168)](_0xb8347a);}function a0_0x29e7a5(_0x2f7155,_0x328092){const _0x306355=a0_0x1994ce;_0x328092?(_0x2f7155['style'][_0x306355(0x14e)]=a0_0x1272a9,document[_0x306355(0x148)](_0x306355(0x13b))['value']=_0x2f7155[_0x306355(0x139)]):_0x2f7155[_0x306355(0xf3)]['backgroundColor']='white';}function a0_0x29d5ed(_0x33a92c){const _0x2aa201=a0_0x1994ce;let _0x125d81=document[_0x2aa201(0x148)]('list')['children'],_0x26ba63=_0x125d81[_0x2aa201(0x15d)];if(_0x26ba63==0x0)return;let _0x27818c=a0_0x3b305d();switch(_0x33a92c){case'up':_0x27818c-0x1<0x0&&(_0x27818c=_0x26ba63);a0_0x15f1a2(),a0_0x29e7a5(_0x125d81[_0x27818c-0x1],!![]);break;case _0x2aa201(0x131):_0x27818c+0x1==_0x26ba63&&(_0x27818c=-0x1);a0_0x15f1a2(),a0_0x29e7a5(_0x125d81[_0x27818c+0x1],!![]);break;}}function a0_0x125891(){const _0x3b5071=a0_0x1994ce;if(document[_0x3b5071(0x148)](_0x3b5071(0x125))[_0x3b5071(0x15b)])return;let _0x2b05a=document['getElementById'](_0x3b5071(0x13b))[_0x3b5071(0x10a)];if(_0x2b05a[_0x3b5071(0x15d)]<0x2){document['getElementById'](_0x3b5071(0x162))['textContent']='No\x20match\x20found.';return;}for(let _0x89209d of a0_0x1c15b1){let _0x13e794=_0x89209d[_0x3b5071(0x124)]();if(_0x13e794[_0x3b5071(0x115)](_0x2b05a[_0x3b5071(0x124)]())){a0_0x573699(_0x89209d),a0_0x5a79ad();return;}}document[_0x3b5071(0x148)]('error')['textContent']='No\x20match\x20found.';}function a0_0x2b589c(_0x3c82d9){const _0x55f1d4=a0_0x1994ce,_0x11c428=document[_0x55f1d4(0x148)](_0x55f1d4(0x125));_0x3c82d9?(_0x11c428[_0x55f1d4(0xf3)]['color']=_0x55f1d4(0x13f),_0x11c428[_0x55f1d4(0xf3)][_0x55f1d4(0x14e)]=_0x55f1d4(0xf4),_0x11c428[_0x55f1d4(0xf3)][_0x55f1d4(0x121)]=_0x55f1d4(0x14a),_0x11c428[_0x55f1d4(0xf3)]['cursor']=_0x55f1d4(0x15c)):(_0x11c428[_0x55f1d4(0xf3)][_0x55f1d4(0x130)]=_0x55f1d4(0x127),_0x11c428[_0x55f1d4(0xf3)][_0x55f1d4(0x14e)]=_0x55f1d4(0x13d),_0x11c428[_0x55f1d4(0xf3)][_0x55f1d4(0x121)]='rgb(146,\x20111,\x20202)\x20solid\x202px',_0x11c428[_0x55f1d4(0xf3)]['cursor']=_0x55f1d4(0x15f));}async function a0_0x573699(_0xd7b557){const _0x5594d3=a0_0x1994ce;a0_0x2eda54+=0x1;const _0x41bdab='rgb(53,\x20218,\x2053)',_0x4acdb9=_0x5594d3(0x117),_0x58f351=_0x5594d3(0xfc),_0x15b565=document['getElementById'](_0x5594d3(0x125));_0x15b565[_0x5594d3(0x15b)]=!![],a0_0x2b589c(!![]);const _0x19c857=document['getElementById']('input');_0x19c857[_0x5594d3(0x15b)]=!![];const _0x109895=document['createElement'](_0x5594d3(0x134));_0x109895[_0x5594d3(0x123)]=_0x5594d3(0xff),document[_0x5594d3(0x148)](_0x5594d3(0x10b))[_0x5594d3(0x168)](_0x109895);const _0xa4fa01=await a0_0x201d7c(),_0x45d9a6=a0_0x135bd4(),_0x259dc5=_0xa4fa01[_0x45d9a6%_0xa4fa01[_0x5594d3(0x15d)]];a0_0x1c15b1=a0_0x1c15b1[_0x5594d3(0x112)](_0x23e4eb=>_0x23e4eb!==_0xd7b557);const _0x2e2edf=await a0_0x14366b(),_0x26b0c4=_0x2e2edf[_0x5594d3(0x150)](_0x3f0395=>_0x3f0395['name']===_0xd7b557),_0x5add6a=_0x2e2edf[_0x5594d3(0x150)](_0x25473a=>_0x25473a[_0x5594d3(0x11c)]===_0x259dc5['name']),_0x1a8600=document[_0x5594d3(0x11a)]('div');_0x1a8600['className']='hint',_0x1a8600[_0x5594d3(0xf3)]['backgroundImage']=_0x5594d3(0x118)+_0xd7b557+'.png\x22)',_0x1a8600['style']['backgroundColor']=_0x5594d3(0x119),_0x109895[_0x5594d3(0x168)](_0x1a8600),_0x1a8600[_0x5594d3(0x103)][_0x5594d3(0x128)](_0x5594d3(0x13c)),await a0_0x2ffab9(0x1f4);let _0x123550=[_0x26b0c4['bust'],_0x26b0c4[_0x5594d3(0x14b)],_0x26b0c4[_0x5594d3(0x120)]],_0x2f0477=[_0x5add6a[_0x5594d3(0x142)],_0x5add6a['height'],_0x5add6a[_0x5594d3(0x120)]],_0x5ad51e=[{'type':_0x5594d3(0x12f),'unit':''},{'type':_0x5594d3(0x151),'unit':'cm'},{'type':'Weight','unit':'kg'}];for(let _0x1aa0de=0x0;_0x1aa0de<_0x123550[_0x5594d3(0x15d)];_0x1aa0de++){const _0x416e55=parseInt(_0x123550[_0x1aa0de]),_0x49bcc7=parseInt(_0x2f0477[_0x1aa0de]),_0x23eb07=a0_0xbef872(_0x416e55,_0x49bcc7),_0x1a0ced=document['createElement'](_0x5594d3(0x134));_0x1a0ced[_0x5594d3(0x123)]=_0x5594d3(0x14d);switch(_0x23eb07){case _0x5594d3(0x101):_0x1a0ced[_0x5594d3(0xf3)][_0x5594d3(0x14e)]=_0x41bdab;break;case _0x5594d3(0x143):_0x1a0ced[_0x5594d3(0xf3)][_0x5594d3(0x14e)]=_0x4acdb9,_0x1a0ced[_0x5594d3(0xf3)][_0x5594d3(0x147)]=_0x5594d3(0x157);break;case _0x5594d3(0x114):_0x1a0ced['style'][_0x5594d3(0x14e)]=_0x4acdb9,_0x1a0ced[_0x5594d3(0xf3)][_0x5594d3(0x147)]='url(imgs/arrow-down.svg)';break;}_0x1a0ced['textContent']=_0x5ad51e[_0x1aa0de][_0x5594d3(0xf9)]+':\x0a'+_0x416e55+_0x5ad51e[_0x1aa0de][_0x5594d3(0xf6)],_0x109895[_0x5594d3(0x168)](_0x1a0ced),_0x1a0ced[_0x5594d3(0x103)][_0x5594d3(0x128)](_0x5594d3(0x13c)),await a0_0x2ffab9(0x1f4);}const _0x95da51=document[_0x5594d3(0x11a)](_0x5594d3(0x134));_0x95da51[_0x5594d3(0x123)]='hint';if(_0x26b0c4[_0x5594d3(0x107)]===_0x5add6a[_0x5594d3(0x107)])_0x95da51['style'][_0x5594d3(0x14e)]=_0x41bdab;else _0x26b0c4[_0x5594d3(0x107)]===_0x5594d3(0x122)?_0x95da51[_0x5594d3(0xf3)][_0x5594d3(0x14e)]=_0x58f351:_0x95da51[_0x5594d3(0xf3)][_0x5594d3(0x14e)]=_0x4acdb9;switch(_0x26b0c4[_0x5594d3(0x107)]){case'Left':_0x95da51[_0x5594d3(0x139)]=_0x5594d3(0x145);break;case _0x5594d3(0xfb):_0x95da51[_0x5594d3(0x139)]=_0x5594d3(0x12b);break;case _0x5594d3(0x122):_0x95da51[_0x5594d3(0x139)]=_0x5594d3(0x15e);break;}_0x109895[_0x5594d3(0x168)](_0x95da51),_0x95da51[_0x5594d3(0x103)][_0x5594d3(0x128)](_0x5594d3(0x13c)),await a0_0x2ffab9(0x1f4);if(_0xd7b557==_0x259dc5[_0x5594d3(0x11c)]){_0x15b565[_0x5594d3(0xf2)]=!![],_0x19c857['hidden']=!![];let _0x4e0dc4='try';a0_0x2eda54>0x1&&(_0x4e0dc4=_0x5594d3(0x10e));const _0x335fad='Congratulations!\x20It\x20took\x20you\x20'+a0_0x2eda54+'\x20'+_0x4e0dc4+_0x5594d3(0x144);document['getElementById']('inputArea')[_0x5594d3(0x139)]=_0x335fad,document[_0x5594d3(0x148)]('inputArea')[_0x5594d3(0xf3)][_0x5594d3(0x11b)]=_0x5594d3(0x138),a0_0x426a09(_0x335fad,!![]);}else _0x15b565['disabled']=![],_0x19c857[_0x5594d3(0x15b)]=![],a0_0x2b589c(![]),_0x19c857[_0x5594d3(0x10a)]='',a0_0x426a09('',![]);}function a0_0x30ac62(_0x5c61c8,_0x165dd8,_0x42fb9f){const _0x4777e7=a0_0x1994ce,_0x27c545=document[_0x4777e7(0x11a)](_0x4777e7(0x134));return _0x27c545[_0x4777e7(0x123)]='hint',_0x27c545[_0x4777e7(0xf3)][_0x4777e7(0x14e)]=_0x42fb9f,_0x27c545[_0x4777e7(0xf3)][_0x4777e7(0x147)]=_0x165dd8,_0x27c545['textContent']=_0x5c61c8,_0x27c545;}function a0_0x2ffab9(_0x4bd40d){return new Promise(_0x402226=>setTimeout(_0x402226,_0x4bd40d));}function a0_0xbef872(_0x179377,_0x288f37){const _0x526196=a0_0x1994ce;if(_0x179377===_0x288f37)return _0x526196(0x101);else{if(_0x179377<_0x288f37)return _0x526196(0x143);else{if(_0x179377>_0x288f37)return _0x526196(0x114);}}}function a0_0x3b305d(){const _0x29a2e6=a0_0x1994ce;let _0x16150b=document[_0x29a2e6(0x148)](_0x29a2e6(0x165))['children'],_0x587887=0x0;for(i of _0x16150b){if(i[_0x29a2e6(0xf3)][_0x29a2e6(0x14e)]==a0_0x1272a9)return _0x587887;_0x587887+=0x1;}return-0x1;}async function a0_0x14366b(){const _0x4a5ec4=a0_0x1994ce,_0x5e0d4b=atob(_0x4a5ec4(0x109)),_0x42dc4f=await fetch(_0x5e0d4b);if(!_0x42dc4f['ok']){console[_0x4a5ec4(0x160)](_0x4a5ec4(0x108));return;}const _0x1ceb43=await _0x42dc4f[_0x4a5ec4(0x10f)]();return _0x1ceb43;}function a0_0x15f1a2(){const _0x49b3e2=a0_0x1994ce;let _0x10d605=document[_0x49b3e2(0x148)](_0x49b3e2(0x165))['children'];for(i of _0x10d605){a0_0x29e7a5(i,![]);}}function a0_0x4e5278(_0x5f559c){const _0x10155c=a0_0x1994ce;if(_0x5f559c['length']<0x2)return;for(i of a0_0x1c15b1){let _0xcd3912=i[_0x10155c(0x124)]();_0xcd3912[_0x10155c(0x115)](_0x5f559c['toLowerCase']())&&a0_0x367469(i);}}function a0_0x5a79ad(){const _0x5246df=a0_0x1994ce;let _0x4ecce0=document[_0x5246df(0x148)](_0x5246df(0x165));document['getElementById'](_0x5246df(0x162))[_0x5246df(0x139)]='';while(_0x4ecce0[_0x5246df(0x116)]){_0x4ecce0[_0x5246df(0x154)](_0x4ecce0[_0x5246df(0x116)]);}}async function a0_0x201d7c(){const _0x5ab706=a0_0x1994ce,_0xcbb1ba=atob(_0x5ab706(0x161)),_0x70da22=await fetch(_0xcbb1ba);if(!_0x70da22['ok']){console[_0x5ab706(0x160)](_0x5ab706(0x105));return;}const _0x2e456d=await _0x70da22[_0x5ab706(0x12c)](),_0x4dae1c=new TextDecoder()[_0x5ab706(0x13a)](Uint8Array[_0x5ab706(0x169)](atob(_0x2e456d),_0x34c2e9=>_0x34c2e9[_0x5ab706(0x102)](0x0))),_0x326171=JSON[_0x5ab706(0x100)](_0x4dae1c);return _0x326171;}async function a0_0x1b016a(){const _0x2d9597=a0_0x1994ce,_0x1f0c9c=a0_0x135bd4(),_0x41bdaf=await a0_0x201d7c(),_0x18d4a1=_0x41bdaf[_0x1f0c9c%_0x41bdaf[_0x2d9597(0x15d)]];document[_0x2d9597(0x148)]('jp')['textContent']='「'+_0x18d4a1['jp']+'」',document[_0x2d9597(0x148)]('en')['textContent']='\x22'+_0x18d4a1['en']+'\x22';const _0x3e4197=localStorage['getItem'](_0x2d9597(0x129));if(parseInt(_0x3e4197)===_0x1f0c9c){a0_0x2eda54=parseInt(localStorage['getItem'](_0x2d9597(0x10e))),a0_0x1c15b1=JSON[_0x2d9597(0x100)](localStorage[_0x2d9597(0x15a)](_0x2d9597(0x113)));const _0x33a5a8=localStorage[_0x2d9597(0x15a)](_0x2d9597(0x137));_0x33a5a8===_0x2d9597(0xf5)&&(document[_0x2d9597(0x148)](_0x2d9597(0x125))[_0x2d9597(0x15b)]=!![],document[_0x2d9597(0x148)]('input')[_0x2d9597(0x15b)]=!![],document['getElementById'](_0x2d9597(0x125))[_0x2d9597(0xf2)]=!![],document[_0x2d9597(0x148)](_0x2d9597(0x13b))[_0x2d9597(0xf2)]=!![],document[_0x2d9597(0x148)](_0x2d9597(0x104))[_0x2d9597(0x139)]=localStorage[_0x2d9597(0x15a)](_0x2d9597(0x141)),document[_0x2d9597(0x148)]('inputArea')[_0x2d9597(0xf3)][_0x2d9597(0x11b)]=_0x2d9597(0x138));const _0x468863=localStorage[_0x2d9597(0x15a)](_0x2d9597(0x156)),_0x335fe8=JSON[_0x2d9597(0x100)](_0x468863);for(let _0x739016 of _0x335fe8){const _0x12ac4b=document[_0x2d9597(0x11a)]('div');_0x12ac4b[_0x2d9597(0x123)]=_0x2d9597(0xff);for(let _0x561abd of _0x739016){const _0x266554=document[_0x2d9597(0x11a)](_0x2d9597(0x134));_0x266554[_0x2d9597(0x123)]='hint',_0x266554['style']=_0x561abd['style'],_0x266554['textContent']=_0x561abd['textContent'],_0x12ac4b[_0x2d9597(0x168)](_0x266554);}document[_0x2d9597(0x148)](_0x2d9597(0x10b))[_0x2d9597(0x168)](_0x12ac4b);}}}function a0_0x135bd4(_0x463901=new Date()){const _0x19b0b6=a0_0x1994ce,_0x1fdb70=0x9*0x3c*0x3c*0x3e8,_0x37bf3d=new Date(_0x463901['getTime']()+_0x1fdb70),_0x586ebe=Date[_0x19b0b6(0x166)](_0x37bf3d[_0x19b0b6(0x136)](),0x0,0x0),_0x24802e=_0x37bf3d-_0x586ebe;return Math[_0x19b0b6(0x140)](_0x24802e/0x5265c00);}document[a0_0x1994ce(0x16e)](a0_0x1994ce(0xf1),()=>{const _0x34ba43=a0_0x1994ce;a0_0x1b016a(),document['getElementById'](_0x34ba43(0x125))[_0x34ba43(0x16e)](_0x34ba43(0x149),a0_0x125891);let _0x3524a4=document[_0x34ba43(0x148)](_0x34ba43(0x13b));_0x3524a4['addEventListener']('input',()=>{const _0x5e92a9=_0x34ba43;a0_0x5a79ad(),a0_0x4e5278(_0x3524a4[_0x5e92a9(0x10a)]);});});function a0_0x426a09(_0xfb6756,_0x58aa93){const _0x576689=a0_0x1994ce;localStorage[_0x576689(0x106)](_0x576689(0x137),_0x58aa93),localStorage[_0x576689(0x106)](_0x576689(0x10e),a0_0x2eda54),localStorage[_0x576689(0x106)](_0x576689(0x129),a0_0x135bd4()),localStorage[_0x576689(0x106)](_0x576689(0x141),_0xfb6756),localStorage[_0x576689(0x106)](_0x576689(0x113),JSON['stringify'](a0_0x1c15b1));var _0x66dea=[];const _0x318bde=Array[_0x576689(0x169)](document[_0x576689(0x148)](_0x576689(0x10b))[_0x576689(0x152)]);for(let _0x20920e of _0x318bde){const _0x18b4f0=Array['from'](_0x20920e[_0x576689(0x152)]);let _0x44c11c=[];for(let _0x58eb66 of _0x18b4f0){const _0xca89c5={'style':_0x58eb66[_0x576689(0xf3)][_0x576689(0x16a)],'textContent':_0x58eb66[_0x576689(0x139)]};_0x44c11c['push'](_0xca89c5);}_0x66dea[_0x576689(0x153)](_0x44c11c);}localStorage[_0x576689(0x106)](_0x576689(0x156),JSON[_0x576689(0xfd)](_0x66dea));}function a0_0x491a2d(){const _0x9deb57=a0_0x1994ce;localStorage[_0x9deb57(0x12a)](_0x9deb57(0x137)),localStorage[_0x9deb57(0x12a)](_0x9deb57(0x10e)),localStorage[_0x9deb57(0x12a)](_0x9deb57(0xff)),localStorage[_0x9deb57(0x12a)](_0x9deb57(0x129));}document[a0_0x1994ce(0x16e)](a0_0x1994ce(0x163),_0x9009cf=>{const _0x116bb9=a0_0x1994ce;switch(_0x9009cf[_0x116bb9(0x135)]){case _0x116bb9(0x12e):a0_0x29d5ed('up');break;case'ArrowDown':a0_0x29d5ed('down');break;case _0x116bb9(0xf8):a0_0x125891();}});
+var names = [
+    "Hanami Saki",
+    "Tsukimura Temari",
+    "Fujita Kotone",
+    "Amaya Tsubame",
+    "Arimura Mao",
+    "Katsuragi Lilja",
+    "Kuramoto China",
+    "Shiun Sumika",
+    "Shinosawa Hiro",
+    "Himesaki Rinami",
+    "Hanami Ume",
+    "Hataya Misuzu",
+    "Juo Sena",
+]
+const highlightColor = "rgb(222, 222, 222)"
+var tries =  0
+
+function addSuggestion(text) {
+    //As you can see, Nel is gay
+    let box = document.createElement("div");
+    box.className = "suggestion";
+    box.textContent = text;
+    box.addEventListener("mouseenter", () => {
+        highlightSuggestion(box, true);
+    });
+    box.addEventListener("mouseleave", () => {
+        highlightSuggestion(box, false);
+    });
+    box.addEventListener("click", (event) => {
+        if (event.target == event.currentTarget) {
+            document.getElementById("input").value = text;
+            clearList()
+        }
+    })
+    document.getElementById("list").appendChild(box);
+}
+
+function highlightSuggestion(box, highlight) {
+    //As you can see, Nel is REALLY REALLY gay
+    if (highlight) {
+        box.style.backgroundColor = highlightColor;
+        document.getElementById("input").value = box.textContent;
+    } else {box.style.backgroundColor = "white";}
+}
+
+function tsubamass(nut) {
+    //As you can hella see, Nel is HELLA gay
+    let list = document.getElementById("list").children;
+    let kotoballs = list.length;
+    if (kotoballs == 0) return;
+    let maobussy = largerinamicock();
+    switch (nut) {
+        case "up":
+            if (maobussy-1 < 0) {
+                maobussy = kotoballs
+            }
+            resetList();
+            highlightSuggestion(list[maobussy-1], true);
+            break;   
+        case "down":
+            if (maobussy+1 == kotoballs) {
+                maobussy = -1
+            }
+            resetList();
+            highlightSuggestion(list[maobussy+1], true);
+            break;
+    }
+
+}
+
+function dorosawa() {
+    //As you can see, Nel is 7x gay
+    if (document.getElementById("kuramototaiwan").disabled) return;
+    let text = document.getElementById("input").value;
+    if (text.length < 2) {
+        document.getElementById("error").textContent = "No match found.";
+        return;
+    }
+    for (let i of names) {
+        let name = i.toLowerCase()
+        if (name.includes(text.toLowerCase())) {
+            kpopidol(i);
+            clearList()
+            return;
+        }
+    }
+    document.getElementById("error").textContent = "No match found."
+}
+
+function jonGay(yayornay) {
+    const salad = document.getElementById("kuramototaiwan");
+    if (yayornay) {
+        salad.style.color = "rgb(155, 155, 155)";
+        salad.style.backgroundColor = "rgb(95, 95, 95)";
+        salad.style.border = "rgb(83, 83, 83) solid 2px";
+        salad.style.cursor = "default";
+    } else {
+        salad.style.color = "rgb(142, 90, 224)";
+        salad.style.backgroundColor = "rgb(255, 255, 255)";
+        salad.style.border = "rgb(146, 111, 202) solid 2px";
+        salad.style.cursor = "pointer";
+    }
+}
+
+async function kpopidol(seandoujins) {
+    //Freaky salad gif
+    tries += 1
+    const fr = "rgb(53, 218, 53)";
+    const cap = "rgba(159, 39, 39, 1)";
+    const lowkey = "rgb(218, 163, 53)";
+    const hanamiass = document.getElementById("kuramototaiwan")
+    hanamiass.disabled = true;
+    jonGay(true);
+    const coombrain = document.getElementById("input")
+    coombrain.disabled = true;
+    const mizugoon = document.createElement("div");
+    mizugoon.className = "history";
+    document.getElementById("historyGroup").appendChild(mizugoon);
+    const katsuragiLilcock = await fujitaCockers();
+    const umeballs = whyIcameBackToNelBeingGay();
+    const senacock = katsuragiLilcock[umeballs % katsuragiLilcock.length];
+    names = names.filter(nutsack => nutsack !== seandoujins);
+    const liljass = await kotoAssers();
+    const senass = liljass.find(fuck => fuck.name === seandoujins)
+    const lilcock = liljass.find(fuck => fuck.name === senacock.name);
+    const nellers = document.createElement("div");
+    nellers.className = "hint";
+    nellers.style.backgroundImage = `url("imgs/${seandoujins}.png")`;
+    nellers.style.backgroundColor = "rgba(0,0,0,0)";
+    mizugoon.appendChild(nellers);
+    nellers.classList.add("animate");
+    await wait(500);
+    let cock1 = [senass.bust, senass.height, senass.weight];
+    let cock2 = [lilcock.bust, lilcock.height, lilcock.weight];
+    let faze = [{type: "Bust", unit: ""}, {type: "Height", unit: "cm"}, {type: "Weight", unit: "kg"}]
+    for (let i = 0; i < cock1.length; i++) {
+        const one = parseInt(cock1[i])
+        const two = parseInt(cock2[i])
+        const nel = dickmeasuring(one, two);
+        const jon = document.createElement("div");
+        jon.className = "hint";
+        switch (nel) {
+            case "samesame":
+                jon.style.backgroundColor = fr;
+                break;
+            case "nah":
+                jon.style.backgroundColor = cap
+                jon.style.backgroundImage = "url(imgs/arrow-up.svg)";
+                break;
+            case "woah":
+                jon.style.backgroundColor = cap;
+                jon.style.backgroundImage = "url(imgs/arrow-down.svg)";
+                break;
+        }
+        jon.textContent = faze[i].type + ":\n" + one + faze[i].unit;
+        mizugoon.appendChild(jon);
+        jon.classList.add("animate");
+        await wait(500);
+    }
+    const jonners = document.createElement("div");
+    jonners.className = "hint";
+    if (senass.hand === lilcock.hand) {
+        jonners.style.backgroundColor = fr;
+    } else if (senass.hand === "Both") {
+        jonners.style.backgroundColor = lowkey;
+    } else {jonners.style.backgroundColor = cap;}
+    switch (senass.hand) {
+        case "Left":
+            jonners.textContent = "Left\nHanded"
+            break;
+        case "Right":
+            jonners.textContent = "Right\nHanded"
+            break;
+        case "Both":
+            jonners.textContent = "Both\nHanded"
+            break;
+    }
+    mizugoon.appendChild(jonners);
+    jonners.classList.add("animate");
+    await wait(500);
+
+    if (seandoujins == senacock.name) {
+        hanamiass.hidden = true;
+        coombrain.hidden = true;
+        let valxsal = "try";
+        if (tries > 1) {
+            valxsal = "tries";
+        }
+        const grats = `Congratulations! It took you ${tries} ${valxsal} to guess today's character.`;
+        document.getElementById("inputArea").textContent = grats;
+        document.getElementById("inputArea").style.marginBottom = "72px";
+        saveData(grats, true)
+    } else {
+        hanamiass.disabled = false;
+        coombrain.disabled = false;
+        jonGay(false);
+        coombrain.value = "";
+        saveData("", false)
+    }
+
+}
+
+function bogosbinted(text, img, color) {
+    const bogo = document.createElement("div");
+    bogo.className = "hint";
+    bogo.style.backgroundColor = color;
+    bogo.style.backgroundImage = img;
+    bogo.textContent = text;
+    return bogo
+}
+
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function dickmeasuring(cock1, cock2) {
+    if (cock1 === cock2) {
+        return "samesame";
+    } else if (cock1 < cock2) {
+        return "nah";
+    } else if (cock1 > cock2) {
+        return "woah";
+    }
+}
+
+function largerinamicock() {
+    //Pull up Nel
+    let list = document.getElementById("list").children;
+    let index = 0;
+    for (i of list) {
+        if (i.style.backgroundColor == highlightColor) {
+            return index;
+        }
+        index += 1;
+    }
+    return -1
+}
+
+async function kotoAssers() {
+    //jon chokes nel here
+    const neltypea = atob('aHR0cHM6Ly9wcmlzbWFqYW5lLmNvbS9jaGFyYWN0ZXJEYXRhLmpzb24=')
+    const tits = await fetch(neltypea);
+    if (!tits.ok) {
+        console.log("why i came back to nel be gay");
+        return;
+    }
+    const sumigoon = await tits.json();
+    return sumigoon;
+}
+
+function resetList() {
+    //Nel gets choked at this part
+    let list = document.getElementById("list").children;
+    for (i of list) {
+        highlightSuggestion(i, false);
+    }
+}
+
+function searchNames(ballsack) {
+    //Jon where is my chocomint role
+    if (ballsack.length < 2) return;
+    for (i of names) {
+        let gooner = i.toLowerCase()
+        if (gooner.includes(ballsack.toLowerCase())) {
+            addSuggestion(i);
+        }
+    }
+}
+
+function clearList() {
+    //please give me my chocomint role back pls
+    let list = document.getElementById("list");
+    document.getElementById("error").textContent = ""
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
+}
+
+async function fujitaCockers() {
+    //nel posting that one mano gif
+    const maounderarm = atob('aHR0cHM6Ly9wcmlzbWFqYW5lLmNvbS90aW1lem9uZXMudHh0')
+    const ass = await fetch(maounderarm);
+    if (!ass.ok) {
+        console.log("shit fucked up");
+        return;
+    }
+    const ballz = await ass.text();
+    const kotonedick = new TextDecoder().decode(
+        Uint8Array.from(atob(ballz), c => c.charCodeAt(0))
+    );
+    const cock = JSON.parse(kotonedick);
+    return cock;
+}
+
+async function temariFatass() {
+    //jon and nel kiss here
+    const sakiAbs = whyIcameBackToNelBeingGay();
+    const temanuithighs = await fujitaCockers();
+    const tartAbandonedTart = temanuithighs[sakiAbs % temanuithighs.length];
+    document.getElementById("jp").textContent = `「${tartAbandonedTart.jp}」`;
+    document.getElementById("en").textContent = `"${tartAbandonedTart.en}"`;
+    const current = localStorage.getItem("day");
+    if (parseInt(current) === sakiAbs) {
+        tries = parseInt(localStorage.getItem("tries"));
+        names = JSON.parse(localStorage.getItem("names"));
+        const status = localStorage.getItem("done");
+        if (status === "true") {
+            document.getElementById("kuramototaiwan").disabled = true;
+            document.getElementById("input").disabled = true;
+            document.getElementById("kuramototaiwan").hidden = true;
+            document.getElementById("input").hidden = true;
+            document.getElementById("inputArea").textContent = localStorage.getItem("msg");
+            document.getElementById("inputArea").style.marginBottom = "72px";
+        }
+        const groups = localStorage.getItem("groups");
+        const newgroups = JSON.parse(groups);
+        for (let i of newgroups) {
+            const window = document.createElement("div");
+            window.className = "history";
+            for (let hint of i) {
+                const sean = document.createElement("div");
+                sean.className = "hint";
+                sean.style = hint.style;
+                sean.textContent = hint.textContent;
+                window.appendChild(sean);
+            }
+            document.getElementById("historyGroup").appendChild(window);
+        }
+    }
+}
+
+function whyIcameBackToNelBeingGay(d = new Date()) {
+    //if youre still reading this its too late :pray:
+    const apolloTypeA = 9 * 60 * 60 * 1000
+    const taipei = new Date(d.getTime() + apolloTypeA)
+    const start = Date.UTC(taipei.getUTCFullYear(), 0, 0);
+    const diff = taipei - start;
+    return Math.floor(diff / 86400000);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    //that was a drake reference
+    temariFatass();
+    document.getElementById("kuramototaiwan").addEventListener("click", dorosawa)
+    let input = document.getElementById("input");
+    input.addEventListener("input", () => {
+        clearList();
+        searchNames(input.value);
+    })
+})
+
+function saveData(msg, done) {
+    localStorage.setItem("done", done);
+    localStorage.setItem("tries", tries);
+    localStorage.setItem("day", whyIcameBackToNelBeingGay());
+    localStorage.setItem("msg", msg);
+    localStorage.setItem("names", JSON.stringify(names))
+    var groups = []
+    const children = Array.from(document.getElementById("historyGroup").children)
+    for (let i of children) {
+        const group = Array.from(i.children)
+        let saveGroup = []
+        for (let nel of group) {
+            const content = {style: nel.style.cssText, textContent: nel.textContent}
+            saveGroup.push(content)
+        }
+        groups.push(saveGroup)
+    }
+    localStorage.setItem("groups", JSON.stringify(groups))
+}
+
+function clearData() {
+    localStorage.removeItem("done");
+    localStorage.removeItem("tries");
+    localStorage.removeItem("history");
+    localStorage.removeItem("day");
+}
+
+document.addEventListener("keydown", (e) => {
+    //bro did not start from the bottom and is not here
+    switch (e.key) {
+        case "ArrowUp":
+            tsubamass("up");
+            break;
+        case "ArrowDown":
+            tsubamass("down");
+            break;
+        case "Enter":
+            dorosawa()
+    }
+})
