@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imasdle</title>
+    <meta property="og:title" content="Imasdle">
+    <meta property="og:description" content="Daily guess on Idolmaster characters.">
+    <meta property="og:url" content="https://prismajane.com/imasdle">
+    <meta content="#43B581" data-react-helmet="true" name="theme-color" />
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main>
+      <h1>Guess the Character</h1>
+      <div class="arrow-down"></div>
+      <div id="bg" data-series="" data-mode="character"></div>
+      <div id="jp"></div>
+      <div id="en"></div>
+      <div id="inputArea">
+        <input id="input" placeholder="Type answer here...">
+        <div id="list"></div>
+        <div id="error"></div>
+        <button id="submit">Submit</button>
+      </div>
+      <div id="historyGroup"></div>
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

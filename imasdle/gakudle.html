@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gakudle</title>
+    <meta property="og:title" content="Gakudle">
+    <meta property="og:description" content="Daily guess on Gakuen Idolmaster characters.">
+    <meta property="og:url" content="https://prismajane.com/imasdle/gakudle.html">
+    <meta content="#43B581" data-react-helmet="true" name="theme-color" />
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main>
+      <nav>
+        <a href="shinydle.html">Play Shinydle</a>
+      </nav>
+      <h1>Guess the Character</h1>
+      <div class="arrow-down"></div>
+      <div id="bg" data-series="gaku" data-mode="character"></div>
+      <div id="jp"></div>
+      <div id="en"></div>
+      <div id="inputArea">
+        <input id="input" placeholder="Type answer here...">
+        <div id="list"></div>
+        <div id="error"></div>
+        <button id="submit">Submit</button>
+      </div>
+      <div id="historyGroup"></div>
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
