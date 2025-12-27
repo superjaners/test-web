@@ -29,6 +29,9 @@ footer {
 
 nav {
     margin-bottom: 32px;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
 }
 
 a {
