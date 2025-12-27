@@ -1,7 +1,6 @@
 var names = [];
 var series = "";
 var answer
-const modes = Object.freeze({CHARACTER: "character", QUOTE: "quote"})
 var mode
 
 const submitButton = document.getElementById("submit");
@@ -271,10 +270,10 @@ async function ready() {
         searchNames(inputButton.value);
     });
     switch (mode) {
-        case modes.CHARACTER:
+        case "character":
              await getTodaysCharacter();
              break;
-        case modes.QUOTE:
+        case "quote":
             await getTodaysQuote();
             break;
     };
@@ -386,4 +385,5 @@ document.addEventListener("keydown", (e) => {
     }
 
 })
+
 
