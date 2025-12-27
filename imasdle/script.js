@@ -1,8 +1,8 @@
 var names = [];
-var series = "shiny";
+var series = "";
 var answer
 const modes = Object.freeze({CHARACTER: "character", QUOTE: "quote"})
-var mode = modes.CHARACTER
+var mode
 
 const submitButton = document.getElementById("submit");
 const inputButton = document.getElementById("input");
@@ -386,3 +386,4 @@ document.addEventListener("keydown", (e) => {
     }
 
 })
+
