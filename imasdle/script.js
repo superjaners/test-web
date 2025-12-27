@@ -1,5 +1,5 @@
 var names = [];
-var series = "gaku";
+var series = "shiny";
 var answer
 const modes = Object.freeze({CHARACTER: "character", QUOTE: "quote"})
 var mode = modes.CHARACTER
@@ -384,4 +384,5 @@ document.addEventListener("keydown", (e) => {
         case "Enter":
             submit()
     }
+
 })
