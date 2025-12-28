@@ -4,7 +4,7 @@
         "hand": "Left",
         "height": 152,
         "name": "Hanami Saki",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 45,
         "age": 16
     },
@@ -13,7 +13,7 @@
         "hand": "Right",
         "height": 162,
         "name": "Tsukimura Temari",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 52,
         "age": 15
     },
@@ -22,7 +22,7 @@
         "hand": "Right",
         "height": 156,
         "name": "Fujita Kotone",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 40,
         "age": 15
     },
@@ -31,7 +31,7 @@
         "hand": "Right",
         "height": 169,
         "name": "Amaya Tsubame",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 51,
         "age": 17
     },
@@ -40,7 +40,7 @@
         "hand": "Right",
         "height": 157,
         "name": "Arimura Mao",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 46,
         "age": 17
     },
@@ -49,7 +49,7 @@
         "hand": "Right",
         "height": 161,
         "name": "Katsuragi Lilja",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 43,
         "age": 15
     },
@@ -58,7 +58,7 @@
         "hand": "Right",
         "height": 148,
         "name": "Kuramoto China",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 43,
         "age": 15
     },
@@ -67,7 +67,7 @@
         "hand": "Left",
         "height": 168,
         "name": "Shiun Sumika",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 54,
         "age": 15
     },
@@ -76,7 +76,7 @@
         "hand": "Left",
         "height": 159,
         "name": "Shinosawa Hiro",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 41,
         "age": 15
     },
@@ -85,7 +85,7 @@
         "hand": "Right",
         "height": 166,
         "name": "Himesaki Rinami",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 56,
         "age": 17
     },
@@ -94,7 +94,7 @@
         "hand": "Right",
         "height": 158,
         "name": "Hanami Ume",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 50,
         "age": 15
     },
@@ -103,7 +103,7 @@
         "hand": "Right",
         "height": 160,
         "name": "Hataya Misuzu",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 42,
         "age": 15
     },
@@ -112,7 +112,7 @@
         "hand": "Both",
         "height": 170,
         "name": "Juo Sena",
-        "series": "Gaku",
+        "series": "gaku",
         "weight": 54,
         "age": 17
     }
