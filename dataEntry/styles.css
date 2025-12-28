@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: Arial;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+    gap: 16px;
+}
+
+select {
+    height: 32px;
+    width: 240px;
+}
+
+input {
+    height: 32px;
+    font-size: 16px;
+    padding-left: 4px;
+}
+
+h3 {
+    margin-top: 32px;
+    text-align: center;
+}
+
+footer {
+    margin: 32px;
+}
+
+#area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.save {
+    height: 48px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.inputField {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80px;
+    width: 256px;
+    gap: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #dddddd;
+    border-radius: 8px;
+}
+
+.subtext {
+    font-size: 12px;
+}
+
+.entry {
+    white-space: pre-line;
+    padding: 16px;
+    border-bottom: #333 solid 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modify {
+    height: 32px;
+}
