@@ -93,6 +93,17 @@ function toggleSubmitButton(bool) {
     }
 }
 
+async function addHintBox(parent, bgImg, bgColor, text) {
+    const box = document.createElement("div");
+    box.className = "hint";
+    box.style.backgroundImage = bgImg;
+    box.style.backgroundColor = bgColor;
+    box.textContent = text;
+    parent.appendChild(box);
+    box.classList.add("animate");
+    await wait(500);
+}
+
 async function check(userGuess) {
     tries += 1
     const correct = "rgb(53, 218, 53)";
@@ -107,68 +118,51 @@ async function check(userGuess) {
     document.getElementById("historyGroup").appendChild(history);
 
     names = names.filter(nutsack => nutsack !== userGuess);
-    const characterData = await characterDB();
-    const guessedCharacter = characterData.find(item => item.name === userGuess)
+    const characterData = await getDB();
+    const guessedCharacter = characterData.find(item => item.name === userGuess);
 
-    const charBox = document.createElement("div");
-    charBox.className = "hint";
-    charBox.style.backgroundImage = `url("imgs/${series}/${userGuess}.png")`;
-    charBox.style.backgroundColor = "rgba(0,0,0,0)";
-    history.appendChild(charBox);
-    charBox.classList.add("animate");
-    await wait(500);
+    await addHintBox(history, `url("imgs/${guessedCharacter.series}/${userGuess}.png")`, "rgba(0,0,0,0)");
 
     let guessStats = [guessedCharacter.bust, guessedCharacter.height, guessedCharacter.weight];
     let todayStats = [bg.a.bust, bg.a.height, bg.a.weight];
-    let phase = [{type: "Bust", unit: ""}, {type: "Height", unit: "cm"}, {type: "Weight", unit: "kg"}]
+    let phase = [{type: "Bust", unit: ""}, {type: "Height", unit: "cm"}, {type: "Weight", unit: "kg"}];
+    if (series === "all") {
+        guessStats.unshift(guessedCharacter.age);
+        todayStats.unshift(bg.a.age);
+        phase.unshift({type: "Age", unit: ""})
+    }
+
     for (let i = 0; i < guessStats.length; i++) {
-        const a = parseInt(guessStats[i])
-        const b = parseInt(todayStats[i])
+        const a = parseInt(guessStats[i]);
+        const b = parseInt(todayStats[i]);
         const comparison = compare(a, b);
-        const hintBox = document.createElement("div");
-        hintBox.className = "hint";
+        let hintBgColor = "";
+        let hintBgImg = "";
+        
         switch (comparison) {
             case "equal":
-                hintBox.style.backgroundColor = correct;
+                hintBgColor = correct;
                 break;
             case "less":
-                hintBox.style.backgroundColor = wrong;
-                hintBox.style.backgroundImage = "url(imgs/elements/arrow-up.svg)";
+                hintBgColor = wrong;
+                hintBgImg = "url(imgs/elements/arrow-up.svg)";
                 break;
             case "greater":
-                hintBox.style.backgroundColor = wrong;
-                hintBox.style.backgroundImage = "url(imgs/elements/arrow-down.svg)";
+                hintBgColor = wrong;
+                hintBgImg = "url(imgs/elements/arrow-down.svg)";
                 break;
         }
-        hintBox.textContent = phase[i].type + ":\n" + a + phase[i].unit;
-        history.appendChild(hintBox);
-        hintBox.classList.add("animate");
-        await wait(500);
+        const hintText = phase[i].type + ":\n" + a + phase[i].unit;
+        await addHintBox(history, hintBgImg, hintBgColor, hintText);
     }
 
-    const handBox = document.createElement("div");
-    handBox.className = "hint";
-
-    if (guessedCharacter.hand === bg.a.hand) {
-        handBox.style.backgroundColor = correct;
-    } else {handBox.style.backgroundColor = wrong;}
-
-    switch (guessedCharacter.hand) {
-        case "Left":
-            handBox.textContent = "Left\nHanded"
-            break;
-        case "Right":
-            handBox.textContent = "Right\nHanded"
-            break;
-        case "Both":
-            handBox.textContent = "Both\nHanded"
-            break;
-    }
-    
-    history.appendChild(handBox);
-    handBox.classList.add("animate");
-    await wait(500);
-
+    if (series !== "all") {
+        let areEqual = "";
+        if (guessedCharacter.hand === bg.a.hand) {
+            areEqual = correct;
+        } else {areEqual = wrong;}
+        await addHintBox(history, "", areEqual, guessedCharacter.hand + "\nHanded")};
+        
     if (userGuess == bg.a.name) {
         submitButton.hidden = true;
         input.hidden = true;
@@ -176,7 +170,7 @@ async function check(userGuess) {
         if (tries > 1) {
             plural = "tries";
         }
-        const grats = `It took you ${tries} ${plural} to guess today's character.`;
+        const grats = `It took you ${tries} ${plural} to guess today's character.\n\nNew guess at 00:00 (JST)`;
         inputArea.textContent = grats;
         inputArea.style.marginBottom = "72px";
         saveData(grats, true)
@@ -215,27 +209,23 @@ function findChild() {
     return -1
 }
 
-async function characterDB() {
-    const response = await fetch(`database/characterData/${series}Data.json`);
+async function getDB() {
+    let path = "";
+    switch (mode) {
+        case "character":
+            path = `database/characterData/${series}Data.json`;
+            break;
+        case "quote":
+            path = `database/quoteData/${series}Data.json`
+            break;
+    }
+    const response = await fetch(path);
     if (!response.ok) {
         console.log("Error fetching.");
         return;
     }
     const parsed = await response.json();
     return parsed;
-}
-
-async function quoteDB() {
-    const response = await fetch(`database/quoteData/${series}Quotes.json`);
-    if (!response.ok) {
-        console.log("Error fetching.");
-        return;
-    }
-    const text = await response.text();
-    const decoded = new TextDecoder().decode(
-        Uint8Array.from(atob(text), c => c.charCodeAt(0))
-    );
-    return JSON.parse(decoded);
 }
 
 function resetList() {
@@ -281,12 +271,36 @@ async function ready() {
     loadData();
 }
 
-function getJST(d = new Date()) {
-    const offset = 9 * 60 * 60 * 1000
-    const JST = new Date(d.getTime() + offset)
-    const start = Date.UTC(JST.getUTCFullYear(), 0, 0);
-    const diff = JST - start;
-    return Math.floor(diff / 86400000);
+function getJST() {
+  const now = new Date();
+  const jstString = now.toLocaleString("en-US", { timeZone: "Asia/Tokyo" });
+  const jstDate = new Date(jstString);
+
+  const start = new Date(jstDate.getFullYear(), 0, 0);
+  const diff = jstDate - start;
+  return Math.floor(diff / 86400000);
+}
+
+function mulberry32(seed) {
+  return function () {
+    seed |= 0;
+    seed = seed + 0x6D2B79F5 | 0;
+    let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+function shuffleDeterministic(arr, seed) {
+  const rand = mulberry32(seed);
+  const result = [...arr];
+
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+
+  return result;
 }
 
 function saveData(msg, done) {
@@ -353,20 +367,22 @@ function clearData() {
 
 async function getTodaysQuote() {
     const time = getJST();
-    const quotes = await quoteDB();
-    const todaysQuote = quotes[time % quotes.length];
+    const list = await getDB();
+    const todaysQuote = list[time % list.length];
     bg.a = todaysQuote.name;
     document.getElementById("jp").textContent = `「${todaysQuote.jp}」`;
     document.getElementById("en").textContent = `"${todaysQuote.en}"`;
-    names = quotes.map(list => list.name)
+    names = list.map(item => item.name)
 }
 
 async function getTodaysCharacter() {
-    const time = getJST();
-    const characters = await characterDB();
-    const todaysCharacter = characters[time % characters.length];
-    bg.a = todaysCharacter;
-    names = characters.map(list => list.name)
+    const list = await getDB();
+    const day = getJST();
+    const cycle = Math.floor(day/list.length) + 1;
+    const position = day % list.length;
+    const shuffled = shuffleDeterministic(list, cycle)
+    bg.a = shuffled[position]
+    names = list.map(item => item.name)
 }
 
 document.addEventListener("DOMContentLoaded", () => {
