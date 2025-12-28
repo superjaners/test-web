@@ -121,7 +121,7 @@ async function check(userGuess) {
     const characterData = await getDB();
     const guessedCharacter = characterData.find(item => item.name === userGuess);
 
-    await addHintBox(history, `url("imgs/${guessedCharacter.series}/${userGuess}.png")`, "rgba(0,0,0,0)");
+    await addHintBox(history, `url("imgs/${guessedCharacter.series.toLower()}/${userGuess}.png")`, "rgba(0,0,0,0)");
 
     let guessStats = [guessedCharacter.bust, guessedCharacter.height, guessedCharacter.weight];
     let todayStats = [bg.a.bust, bg.a.height, bg.a.weight];
@@ -400,4 +400,5 @@ document.addEventListener("keydown", (e) => {
         case "Enter":
             submit()
     }
+
 })
