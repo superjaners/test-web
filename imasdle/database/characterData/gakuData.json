@@ -1,106 +1,119 @@
 [
-	{
-		"bust": 84,
-		"hand": "Left",
-		"height": 152,
-		"name": "Hanami Saki",
-		"series": "Gaku",
-		"weight": 45
-	},
-	{
-		"bust": 82,
-		"hand": "Right",
-		"height": 162,
-		"name": "Tsukimura Temari",
-		"series": "Gaku",
-		"weight": 52
-	},
-	{
-		"bust": 75,
-		"hand": "Right",
-		"height": 156,
-		"name": "Fujita Kotone",
-		"series": "Gaku",
-		"weight": 40
-	},
-	{
-		"bust": 80,
-		"hand": "Right",
-		"height": 169,
-		"name": "Amaya Tsubame",
-		"series": "Gaku",
-		"weight": 51
-	},
-	{
-		"bust": 85,
-		"hand": "Right",
-		"height": 157,
-		"name": "Arimura Mao",
-		"series": "Gaku",
-		"weight": 46
-	},
-	{
-		"bust": 82,
-		"hand": "Right",
-		"height": 161,
-		"name": "Katsuragi Lilja",
-		"series": "Gaku",
-		"weight": 43
-	},
-	{
-		"bust": 73,
-		"hand": "Right",
-		"height": 148,
-		"name": "Kuramoto China",
-		"series": "Gaku",
-		"weight": 43
-	},
-	{
-		"bust": 89,
-		"hand": "Left",
-		"height": 168,
-		"name": "Shiun Sumika",
-		"series": "Gaku",
-		"weight": 54
-	},
-	{
-		"bust": 72,
-		"hand": "Left",
-		"height": 159,
-		"name": "Shinosawa Hiro",
-		"series": "Gaku",
-		"weight": 41
-	},
-	{
-		"bust": 90,
-		"hand": "Right",
-		"height": 166,
-		"name": "Himesaki Rinami",
-		"series": "Gaku",
-		"weight": 56
-	},
-	{
-		"bust": 91,
-		"hand": "Right",
-		"height": 158,
-		"name": "Hanami Ume",
-		"series": "Gaku",
-		"weight": 50
-	},
-	{
-		"bust": 73,
-		"hand": "Right",
-		"height": 160,
-		"name": "Hataya Misuzu",
-		"series": "Gaku",
-		"weight": 42
-	},
-	{
-		"bust": 88,
-		"hand": "Both",
-		"height": 170,
-		"name": "Juo Sena",
-		"series": "Gaku",
-		"weight": 54
-	}
+    {
+        "bust": 84,
+        "hand": "Left",
+        "height": 152,
+        "name": "Hanami Saki",
+        "series": "Gaku",
+        "weight": 45,
+        "age": 16
+    },
+    {
+        "bust": 82,
+        "hand": "Right",
+        "height": 162,
+        "name": "Tsukimura Temari",
+        "series": "Gaku",
+        "weight": 52,
+        "age": 15
+    },
+    {
+        "bust": 75,
+        "hand": "Right",
+        "height": 156,
+        "name": "Fujita Kotone",
+        "series": "Gaku",
+        "weight": 40,
+        "age": 15
+    },
+    {
+        "bust": 80,
+        "hand": "Right",
+        "height": 169,
+        "name": "Amaya Tsubame",
+        "series": "Gaku",
+        "weight": 51,
+        "age": 17
+    },
+    {
+        "bust": 85,
+        "hand": "Right",
+        "height": 157,
+        "name": "Arimura Mao",
+        "series": "Gaku",
+        "weight": 46,
+        "age": 17
+    },
+    {
+        "bust": 82,
+        "hand": "Right",
+        "height": 161,
+        "name": "Katsuragi Lilja",
+        "series": "Gaku",
+        "weight": 43,
+        "age": 15
+    },
+    {
+        "bust": 73,
+        "hand": "Right",
+        "height": 148,
+        "name": "Kuramoto China",
+        "series": "Gaku",
+        "weight": 43,
+        "age": 15
+    },
+    {
+        "bust": 89,
+        "hand": "Left",
+        "height": 168,
+        "name": "Shiun Sumika",
+        "series": "Gaku",
+        "weight": 54,
+        "age": 15
+    },
+    {
+        "bust": 72,
+        "hand": "Left",
+        "height": 159,
+        "name": "Shinosawa Hiro",
+        "series": "Gaku",
+        "weight": 41,
+        "age": 15
+    },
+    {
+        "bust": 90,
+        "hand": "Right",
+        "height": 166,
+        "name": "Himesaki Rinami",
+        "series": "Gaku",
+        "weight": 56,
+        "age": 17
+    },
+    {
+        "bust": 91,
+        "hand": "Right",
+        "height": 158,
+        "name": "Hanami Ume",
+        "series": "Gaku",
+        "weight": 50,
+        "age": 15
+    },
+    {
+        "bust": 73,
+        "hand": "Right",
+        "height": 160,
+        "name": "Hataya Misuzu",
+        "series": "Gaku",
+        "weight": 42,
+        "age": 15
+    },
+    {
+        "bust": 88,
+        "hand": "Both",
+        "height": 170,
+        "name": "Juo Sena",
+        "series": "Gaku",
+        "weight": 54,
+        "age": 17
+    }
 ]

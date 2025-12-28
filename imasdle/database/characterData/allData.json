@@ -1,0 +1,840 @@
+[
+    {
+        "bust": 84,
+        "hand": "Left",
+        "height": 152,
+        "name": "Hanami Saki",
+        "series": "Gaku",
+        "weight": 45,
+        "age": 16
+    },
+    {
+        "bust": 82,
+        "hand": "Right",
+        "height": 162,
+        "name": "Tsukimura Temari",
+        "series": "Gaku",
+        "weight": 52,
+        "age": 15
+    },
+    {
+        "bust": 75,
+        "hand": "Right",
+        "height": 156,
+        "name": "Fujita Kotone",
+        "series": "Gaku",
+        "weight": 40,
+        "age": 15
+    },
+    {
+        "bust": 80,
+        "hand": "Right",
+        "height": 169,
+        "name": "Amaya Tsubame",
+        "series": "Gaku",
+        "weight": 51,
+        "age": 17
+    },
+    {
+        "bust": 85,
+        "hand": "Right",
+        "height": 157,
+        "name": "Arimura Mao",
+        "series": "Gaku",
+        "weight": 46,
+        "age": 17
+    },
+    {
+        "bust": 82,
+        "hand": "Right",
+        "height": 161,
+        "name": "Katsuragi Lilja",
+        "series": "Gaku",
+        "weight": 43,
+        "age": 15
+    },
+    {
+        "bust": 73,
+        "hand": "Right",
+        "height": 148,
+        "name": "Kuramoto China",
+        "series": "Gaku",
+        "weight": 43,
+        "age": 15
+    },
+    {
+        "bust": 89,
+        "hand": "Left",
+        "height": 168,
+        "name": "Shiun Sumika",
+        "series": "Gaku",
+        "weight": 54,
+        "age": 15
+    },
+    {
+        "bust": 72,
+        "hand": "Left",
+        "height": 159,
+        "name": "Shinosawa Hiro",
+        "series": "Gaku",
+        "weight": 41,
+        "age": 15
+    },
+    {
+        "bust": 90,
+        "hand": "Right",
+        "height": 166,
+        "name": "Himesaki Rinami",
+        "series": "Gaku",
+        "weight": 56,
+        "age": 17
+    },
+    {
+        "bust": 91,
+        "hand": "Right",
+        "height": 158,
+        "name": "Hanami Ume",
+        "series": "Gaku",
+        "weight": 50,
+        "age": 15
+    },
+    {
+        "bust": 73,
+        "hand": "Right",
+        "height": 160,
+        "name": "Hataya Misuzu",
+        "series": "Gaku",
+        "weight": 42,
+        "age": 15
+    },
+    {
+        "bust": 88,
+        "hand": "Both",
+        "height": 170,
+        "name": "Juo Sena",
+        "series": "Gaku",
+        "weight": 54,
+        "age": 17
+    },
+	{
+		"age": 18.0,
+		"bust": 84.0,
+		"hand": "Right",
+		"height": 158.0,
+		"name": "Suzuki Hana",
+		"series": "Shiny",
+		"weight": 49.0
+	},
+	{
+		"age": 20.0,
+		"bust": 76.0,
+		"hand": "Left",
+		"height": 161.0,
+		"name": "Ikaruga Luca",
+		"series": "Shiny",
+		"weight": 44.0
+	},
+	{
+		"age": 17.0,
+		"bust": 82.0,
+		"hand": "Right",
+		"height": 156.0,
+		"name": "Ikuta Haruki",
+		"series": "Shiny",
+		"weight": 47.0
+	},
+	{
+		"age": 16.0,
+		"bust": 82.0,
+		"hand": "Right",
+		"height": 158.0,
+		"name": "Nanakusa Nichika",
+		"series": "Shiny",
+		"weight": 48.0
+	},
+	{
+		"age": 24.0,
+		"bust": 85.0,
+		"hand": "Right",
+		"height": 170.0,
+		"name": "Aketa Mikoto",
+		"series": "Shiny",
+		"weight": 54.0
+	},
+	{
+		"age": 16.0,
+		"bust": 71.0,
+		"hand": "Right",
+		"height": 148.0,
+		"name": "Fukumaru Koito",
+		"series": "Shiny",
+		"weight": 42.0
+	},
+	{
+		"age": 17.0,
+		"bust": 82.0,
+		"hand": "Right",
+		"height": 160.0,
+		"name": "Asakura Toru",
+		"series": "Shiny",
+		"weight": 50.0
+	},
+	{
+		"age": 17.0,
+		"bust": 79.0,
+		"hand": "Right",
+		"height": 159.0,
+		"name": "Higuchi Madoka",
+		"series": "Shiny",
+		"weight": 47.0
+	},
+	{
+		"age": 15.0,
+		"bust": 87.0,
+		"hand": "Left",
+		"height": 165.0,
+		"name": "Ichikawa Hinana",
+		"series": "Shiny",
+		"weight": 56.0
+	},
+	{
+		"age": 19.0,
+		"bust": 78.0,
+		"hand": "Right",
+		"height": 163.0,
+		"name": "Mayuzumi Fuyuko",
+		"series": "Shiny",
+		"weight": 55.0
+	},
+	{
+		"age": 14.0,
+		"bust": 78.0,
+		"hand": "Both",
+		"height": 153.0,
+		"name": "Serizawa Asahi",
+		"series": "Shiny",
+		"weight": 47.0
+	},
+	{
+		"age": 18.0,
+		"bust": 90.0,
+		"hand": "Right",
+		"height": 162.0,
+		"name": "Izumi Mei",
+		"series": "Shiny",
+		"weight": 51.0
+	},
+	{
+		"age": 17.0,
+		"bust": 81.0,
+		"hand": "Right",
+		"height": 159.0,
+		"name": "Osaki Tenka",
+		"series": "Shiny",
+		"weight": 44.0
+	},
+	{
+		"age": 17.0,
+		"bust": 80.0,
+		"hand": "Right",
+		"height": 159.0,
+		"name": "Osaki Amana",
+		"series": "Shiny",
+		"weight": 43.0
+	},
+	{
+		"age": 23.0,
+		"bust": 89.0,
+		"hand": "Right",
+		"height": 163.0,
+		"name": "Kuwayama Chiyuki",
+		"series": "Shiny",
+		"weight": 47.0
+	},
+	{
+		"age": 16.0,
+		"bust": 70.0,
+		"hand": "Left",
+		"height": 155.0,
+		"name": "Morino Rinze",
+		"series": "Shiny",
+		"weight": 44.0
+	},
+	{
+		"age": 17.0,
+		"bust": 85.0,
+		"hand": "Right",
+		"height": 149.0,
+		"name": "Sonoda Chiyoko",
+		"series": "Shiny",
+		"weight": 46.0
+	},
+	{
+		"age": 12.0,
+		"bust": 80.0,
+		"hand": "Right",
+		"height": 163.0,
+		"name": "Komiya Kaho",
+		"series": "Shiny",
+		"weight": 45.0
+	},
+	{
+		"age": 17.0,
+		"bust": 75.0,
+		"hand": "Right",
+		"height": 160.0,
+		"name": "Saijo Juri",
+		"series": "Shiny",
+		"weight": 48.0
+	},
+	{
+		"age": 20.0,
+		"bust": 85.0,
+		"hand": "Right",
+		"height": 168.0,
+		"name": "Arisugawa Natsuha",
+		"series": "Shiny",
+		"weight": 49.0
+	},
+	{
+		"age": 19.0,
+		"bust": 73.0,
+		"hand": "Right",
+		"height": 158.0,
+		"name": "Mitsumine Yuika",
+		"series": "Shiny",
+		"weight": 44.0
+	},
+	{
+		"age": 18.0,
+		"bust": 81.0,
+		"hand": "Right",
+		"height": 161.0,
+		"name": "Tanaka Mamimi",
+		"series": "Shiny",
+		"weight": 49.0
+	},
+	{
+		"age": 19.0,
+		"bust": 93.0,
+		"hand": "Left",
+		"height": 165.0,
+		"name": "Tsukioka Kogane",
+		"series": "Shiny",
+		"weight": 58.0
+	},
+	{
+		"age": 18.0,
+		"bust": 91.0,
+		"hand": "Right",
+		"height": 175.0,
+		"name": "Shirase Sakuya",
+		"series": "Shiny",
+		"weight": 60.0
+	},
+	{
+		"age": 17.0,
+		"bust": 79.0,
+		"hand": "Left",
+		"height": 160.0,
+		"name": "Yukoku Kiriko",
+		"series": "Shiny",
+		"weight": 51.0
+	},
+	{
+		"age": 15.0,
+		"bust": 75.0,
+		"hand": "Right",
+		"height": 154.0,
+		"name": "Kazano Hiori",
+		"series": "Shiny",
+		"weight": 43.0
+	},
+	{
+		"age": 16.0,
+		"bust": 86.0,
+		"hand": "Right",
+		"height": 155.0,
+		"name": "Sakuragi Mano",
+		"series": "Shiny",
+		"weight": 48.0
+	},
+	{
+		"age": 16.0,
+		"bust": 90.0,
+		"hand": "Right",
+		"height": 157.0,
+		"name": "Hachimiya Meguru",
+		"series": "Shiny",
+		"weight": 46.0
+	},
+  {
+    "bust": 83.0,
+    "hand": "Right",
+    "height": 158.0,
+    "name": "Amami Haruka",
+    "series": "765",
+    "weight": 46.0,
+    "age": 17
+  },
+  {
+    "bust": 72.0,
+    "hand": "Right",
+    "height": 162.0,
+    "name": "Kisaragi Chihaya",
+    "series": "765",
+    "weight": 41.0,
+    "age": 16
+  },
+  {
+    "bust": 86.0,
+    "hand": "Right",
+    "height": 161.0,
+    "name": "Hoshii Miki",
+    "series": "765",
+    "weight": 45.0,
+    "age": 15
+  },
+  {
+    "bust": 81.0,
+    "hand": "Right",
+    "height": 155.0,
+    "name": "Hagiwara Yukiho",
+    "series": "765",
+    "weight": 42.0,
+    "age": 17
+  },
+  {
+    "bust": 74.0,
+    "hand": "Right",
+    "height": 145.0,
+    "name": "Takatsuki Yayoi",
+    "series": "765",
+    "weight": 37.0,
+    "age": 14
+  },
+  {
+    "bust": 75.0,
+    "hand": "Right",
+    "height": 159.0,
+    "name": "Kikuchi Makoto",
+    "series": "765",
+    "weight": 44.0,
+    "age": 17
+  },
+  {
+    "bust": 78.0,
+    "hand": "Right",
+    "height": 158.0,
+    "name": "Futami Ami",
+    "series": "765",
+    "weight": 42.0,
+    "age": 13
+  },
+  {
+    "bust": 78.0,
+    "hand": "Left",
+    "height": 158.0,
+    "name": "Futami Mami",
+    "series": "765",
+    "weight": 42.0,
+    "age": 13
+  },
+  {
+    "bust": 91.0,
+    "hand": "Right",
+    "height": 168.0,
+    "name": "Miura Azusa",
+    "series": "765",
+    "weight": 48.0,
+    "age": 21
+  },
+  {
+    "bust": 77.0,
+    "hand": "Right",
+    "height": 153.0,
+    "name": "Minase Iori",
+    "series": "765",
+    "weight": 40.0,
+    "age": 15
+  },
+  {
+    "bust": 85.0,
+    "hand": "Right",
+    "height": 156.0,
+    "name": "Akizuki Ritsuko",
+    "series": "765",
+    "weight": 43.0,
+    "age": 19
+  },
+  {
+    "bust": 90.0,
+    "hand": "Right",
+    "height": 169.0,
+    "name": "Shijou Takane",
+    "series": "765",
+    "weight": 49.0,
+    "age": 18
+  },
+  {
+    "bust": 83.0,
+    "hand": "Right",
+    "height": 152.0,
+    "name": "Ganaha Hibiki",
+    "series": "765",
+    "weight": 41.0,
+    "age": 16
+  },
+  {
+    "bust": 78.0,
+    "hand": "Right",
+    "height": 156.0,
+    "name": "Kasuga Mirai",
+    "series": "765",
+    "weight": 42.0,
+    "age": 14
+  },
+  {
+    "bust": 76.0,
+    "hand": "Right",
+    "height": 162.0,
+    "name": "Mogami Shizuka",
+    "series": "765",
+    "weight": 44.0,
+    "age": 14
+  },
+  {
+    "bust": 85.0,
+    "hand": "Left",
+    "height": 158.0,
+    "name": "Ibuki Tsubasa",
+    "series": "765",
+    "weight": 43.0,
+    "age": 14
+  },
+  {
+    "bust": 79.0,
+    "hand": "Right",
+    "height": 157.0,
+    "name": "Tanaka Kotoha",
+    "series": "765",
+    "weight": 44.0,
+    "age": 18
+  },
+  {
+    "bust": 85.0,
+    "hand": "Right",
+    "height": 160.0,
+    "name": "Shimabara Elena",
+    "series": "765",
+    "weight": 47.0,
+    "age": 17
+  },
+  {
+    "bust": 86.0,
+    "hand": "Right",
+    "height": 158.0,
+    "name": "Satake Minako",
+    "series": "765",
+    "weight": 45.0,
+    "age": 18
+  },
+  {
+    "bust": 88.0,
+    "hand": "Right",
+    "height": 159.0,
+    "name": "Tokoro Megumi",
+    "series": "765",
+    "weight": 47.0,
+    "age": 16
+  },
+  {
+    "bust": 85.0,
+    "hand": "Right",
+    "height": 163.0,
+    "name": "Tokugawa Matsuri",
+    "series": "765",
+    "weight": 44.0,
+    "age": 19
+  },
+  {
+    "bust": 74.0,
+    "hand": "Right",
+    "height": 146.0,
+    "name": "Hakozaki Serika",
+    "series": "765",
+    "weight": 37.0,
+    "age": 13
+  },
+  {
+    "bust": 80.0,
+    "hand": "Left",
+    "height": 150.0,
+    "name": "Nonohara Akane",
+    "series": "765",
+    "weight": 42.0,
+    "age": 16
+  },
+  {
+    "bust": 78.0,
+    "hand": "Right",
+    "height": 152.0,
+    "name": "Mochizuki Anna",
+    "series": "765",
+    "weight": 41.0,
+    "age": 14
+  },
+  {
+    "bust": 78.0,
+    "hand": "Right",
+    "height": 154.0,
+    "name": "Handa Roco",
+    "series": "765",
+    "weight": 42.0,
+    "age": 15
+  },
+  {
+    "bust": 78.0,
+    "hand": "Right",
+    "height": 154.0,
+    "name": "Nanao Yuriko",
+    "series": "765",
+    "weight": 41.0,
+    "age": 15
+  },
+  {
+    "bust": 82.0,
+    "hand": "Right",
+    "height": 156.0,
+    "name": "Takayama Sayoko",
+    "series": "765",
+    "weight": 42.0,
+    "age": 18
+  },
+  {
+    "bust": 81.0,
+    "hand": "Right",
+    "height": 154.0,
+    "name": "Matsuda Arisa",
+    "series": "765",
+    "weight": 40.0,
+    "age": 16
+  },
+  {
+    "bust": 82.0,
+    "hand": "Right",
+    "height": 155.0,
+    "name": "Kousaka Umi",
+    "series": "765",
+    "weight": 45.0,
+    "age": 16
+  },
+  {
+    "bust": 72.0,
+    "hand": "Right",
+    "height": 142.0,
+    "name": "Nakatani Iku",
+    "series": "765",
+    "weight": 37.0,
+    "age": 10
+  },
+  {
+    "bust": 80.0,
+    "hand": "Left",
+    "height": 156.0,
+    "name": "Tenkubashi Tomoka",
+    "series": "765",
+    "weight": 41.0,
+    "age": 15
+  },
+  {
+    "bust": 74.0,
+    "hand": "Right",
+    "height": 156.0,
+    "name": "Emily Stewart",
+    "series": "765",
+    "weight": 41.0,
+    "age": 13
+  },
+  {
+    "bust": 83.0,
+    "hand": "Right",
+    "height": 161.0,
+    "name": "Kitazawa Shiho",
+    "series": "765",
+    "weight": 46.0,
+    "age": 14
+  },
+  {
+    "bust": 86.0,
+    "hand": "Right",
+    "height": 158.0,
+    "name": "Maihama Ayumu",
+    "series": "765",
+    "weight": 50.0,
+    "age": 19
+  },
+  {
+    "bust": 74.0,
+    "hand": "Right",
+    "height": 146.0,
+    "name": "Kinoshita Hinata",
+    "series": "765",
+    "weight": 39.5,
+    "age": 14
+  },
+  {
+    "bust": 77.0,
+    "hand": "Right",
+    "height": 155.0,
+    "name": "Yabuki Kana",
+    "series": "765",
+    "weight": 43.0,
+    "age": 14
+  },
+  {
+    "bust": 84.0,
+    "hand": "Right",
+    "height": 159.0,
+    "name": "Yokoyama Nao",
+    "series": "765",
+    "weight": 46.0,
+    "age": 17
+  },
+  {
+    "bust": 85.0,
+    "hand": "Right",
+    "height": 165.0,
+    "name": "Nikaido Chizuru",
+    "series": "765",
+    "weight": 50.0,
+    "age": 21
+  },
+  {
+    "bust": 75.0,
+    "hand": "Right",
+    "height": 143.0,
+    "name": "Baba Konomi",
+    "series": "765",
+    "weight": 37.0,
+    "age": 24
+  },
+  {
+    "bust": 76.0,
+    "hand": "Right",
+    "height": 147.0,
+    "name": "Ogami Tamaki",
+    "series": "765",
+    "weight": 39.0,
+    "age": 12
+  },
+  {
+    "bust": 93.0,
+    "hand": "Right",
+    "height": 162.0,
+    "name": "Toyokawa Fuka",
+    "series": "765",
+    "weight": 51.0,
+    "age": 22
+  },
+  {
+    "bust": 84.0,
+    "hand": "Right",
+    "height": 156.0,
+    "name": "Miyao Miya",
+    "series": "765",
+    "weight": 46.0,
+    "age": 17
+  },
+  {
+    "bust": 87.0,
+    "hand": "Right",
+    "height": 164.0,
+    "name": "Fukuda Noriko",
+    "series": "765",
+    "weight": 48.0,
+    "age": 18
+  },
+  {
+    "bust": 73.0,
+    "hand": "Right",
+    "height": 160.0,
+    "name": "Makabe Mizuki",
+    "series": "765",
+    "weight": 43.0,
+    "age": 17
+  },
+  {
+    "bust": 90.0,
+    "hand": "Right",
+    "height": 159.0,
+    "name": "Shinomiya Karen",
+    "series": "765",
+    "weight": 48.0,
+    "age": 16
+  },
+  {
+    "bust": 84.0,
+    "hand": "Right",
+    "height": 168.0,
+    "name": "Momose Rio",
+    "series": "765",
+    "weight": 46.0,
+    "age": 23
+  },
+  {
+    "bust": 79.0,
+    "hand": "Left",
+    "height": 154.0,
+    "name": "Nagayoshi Subaru",
+    "series": "765",
+    "weight": 41.0,
+    "age": 15
+  },
+  {
+    "bust": 84.0,
+    "hand": "Right",
+    "height": 164.0,
+    "name": "Kitakami Reika",
+    "series": "765",
+    "weight": 47.0,
+    "age": 20
+  },
+  {
+    "bust": 73.0,
+    "hand": "Right",
+    "height": 140.0,
+    "name": "Suou Momoko",
+    "series": "765",
+    "weight": 35.0,
+    "age": 11
+  },
+  {
+    "bust": 79.0,
+    "hand": "Left",
+    "height": 157.0,
+    "name": "Julia",
+    "series": "765",
+    "weight": 43.0,
+    "age": 16
+  },
+  {
+    "bust": 82.0,
+    "hand": "Right",
+    "height": 160.0,
+    "name": "Shiraishi Tsumugi",
+    "series": "765",
+    "weight": 45.0,
+    "age": 17
+  },
+  {
+    "bust": 88.0,
+    "hand": "Right",
+    "height": 165.0,
+    "name": "Sakuramori Kaori",
+    "series": "765",
+    "weight": 47.0,
+    "age": 23
+  }
+]
+

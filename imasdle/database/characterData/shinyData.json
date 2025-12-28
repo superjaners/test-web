@@ -1,5 +1,6 @@
 [
 	{
+		"age": 18.0,
 		"bust": 84.0,
 		"hand": "Right",
 		"height": 158.0,
@@ -8,6 +9,7 @@
 		"weight": 49.0
 	},
 	{
+		"age": 20.0,
 		"bust": 76.0,
 		"hand": "Left",
 		"height": 161.0,
@@ -16,6 +18,7 @@
 		"weight": 44.0
 	},
 	{
+		"age": 17.0,
 		"bust": 82.0,
 		"hand": "Right",
 		"height": 156.0,
@@ -24,6 +27,7 @@
 		"weight": 47.0
 	},
 	{
+		"age": 16.0,
 		"bust": 82.0,
 		"hand": "Right",
 		"height": 158.0,
@@ -32,6 +36,7 @@
 		"weight": 48.0
 	},
 	{
+		"age": 24.0,
 		"bust": 85.0,
 		"hand": "Right",
 		"height": 170.0,
@@ -40,6 +45,7 @@
 		"weight": 54.0
 	},
 	{
+		"age": 16.0,
 		"bust": 71.0,
 		"hand": "Right",
 		"height": 148.0,
@@ -48,6 +54,7 @@
 		"weight": 42.0
 	},
 	{
+		"age": 17.0,
 		"bust": 82.0,
 		"hand": "Right",
 		"height": 160.0,
@@ -56,6 +63,7 @@
 		"weight": 50.0
 	},
 	{
+		"age": 17.0,
 		"bust": 79.0,
 		"hand": "Right",
 		"height": 159.0,
@@ -64,6 +72,7 @@
 		"weight": 47.0
 	},
 	{
+		"age": 15.0,
 		"bust": 87.0,
 		"hand": "Left",
 		"height": 165.0,
@@ -72,6 +81,7 @@
 		"weight": 56.0
 	},
 	{
+		"age": 19.0,
 		"bust": 78.0,
 		"hand": "Right",
 		"height": 163.0,
@@ -80,6 +90,7 @@
 		"weight": 55.0
 	},
 	{
+		"age": 14.0,
 		"bust": 78.0,
 		"hand": "Both",
 		"height": 153.0,
@@ -88,6 +99,7 @@
 		"weight": 47.0
 	},
 	{
+		"age": 18.0,
 		"bust": 90.0,
 		"hand": "Right",
 		"height": 162.0,
@@ -96,6 +108,7 @@
 		"weight": 51.0
 	},
 	{
+		"age": 17.0,
 		"bust": 81.0,
 		"hand": "Right",
 		"height": 159.0,
@@ -104,6 +117,7 @@
 		"weight": 44.0
 	},
 	{
+		"age": 17.0,
 		"bust": 80.0,
 		"hand": "Right",
 		"height": 159.0,
@@ -112,6 +126,7 @@
 		"weight": 43.0
 	},
 	{
+		"age": 23.0,
 		"bust": 89.0,
 		"hand": "Right",
 		"height": 163.0,
@@ -120,6 +135,7 @@
 		"weight": 47.0
 	},
 	{
+		"age": 16.0,
 		"bust": 70.0,
 		"hand": "Left",
 		"height": 155.0,
@@ -128,6 +144,7 @@
 		"weight": 44.0
 	},
 	{
+		"age": 17.0,
 		"bust": 85.0,
 		"hand": "Right",
 		"height": 149.0,
@@ -136,6 +153,7 @@
 		"weight": 46.0
 	},
 	{
+		"age": 12.0,
 		"bust": 80.0,
 		"hand": "Right",
 		"height": 163.0,
@@ -144,6 +162,7 @@
 		"weight": 45.0
 	},
 	{
+		"age": 17.0,
 		"bust": 75.0,
 		"hand": "Right",
 		"height": 160.0,
@@ -152,6 +171,7 @@
 		"weight": 48.0
 	},
 	{
+		"age": 20.0,
 		"bust": 85.0,
 		"hand": "Right",
 		"height": 168.0,
@@ -160,6 +180,7 @@
 		"weight": 49.0
 	},
 	{
+		"age": 19.0,
 		"bust": 73.0,
 		"hand": "Right",
 		"height": 158.0,
@@ -168,6 +189,7 @@
 		"weight": 44.0
 	},
 	{
+		"age": 18.0,
 		"bust": 81.0,
 		"hand": "Right",
 		"height": 161.0,
@@ -176,6 +198,7 @@
 		"weight": 49.0
 	},
 	{
+		"age": 19.0,
 		"bust": 93.0,
 		"hand": "Left",
 		"height": 165.0,
@@ -184,6 +207,7 @@
 		"weight": 58.0
 	},
 	{
+		"age": 18.0,
 		"bust": 91.0,
 		"hand": "Right",
 		"height": 175.0,
@@ -192,6 +216,7 @@
 		"weight": 60.0
 	},
 	{
+		"age": 17.0,
 		"bust": 79.0,
 		"hand": "Left",
 		"height": 160.0,
@@ -200,6 +225,7 @@
 		"weight": 51.0
 	},
 	{
+		"age": 15.0,
 		"bust": 75.0,
 		"hand": "Right",
 		"height": 154.0,
@@ -208,6 +234,7 @@
 		"weight": 43.0
 	},
 	{
+		"age": 16.0,
 		"bust": 86.0,
 		"hand": "Right",
 		"height": 155.0,
@@ -216,6 +243,7 @@
 		"weight": 48.0
 	},
 	{
+		"age": 16.0,
 		"bust": 90.0,
 		"hand": "Right",
 		"height": 157.0,
