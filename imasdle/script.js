@@ -400,6 +400,4 @@ document.addEventListener("keydown", (e) => {
         case "Enter":
             submit()
     }
-
 })
-
