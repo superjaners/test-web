@@ -835,6 +835,439 @@
     "series": "765",
     "weight": 47.0,
     "age": 23
+  },
+
+  {
+    "series": "sidem",
+    "name": "Amagase Touma",
+    "age": 17,
+    "height": 175,
+    "weight": 57,
+    "bust": 81,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Tendo Teru",
+    "age": 28,
+    "height": 175,
+    "weight": 63,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Watanabe Minori",
+    "age": 31,
+    "height": 178,
+    "weight": 55,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Kimura Ryu",
+    "age": 20,
+    "height": 175,
+    "weight": 70,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Akiyama Hayato",
+    "age": 17,
+    "height": 162,
+    "weight": 48,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Iseya Shiki",
+    "age": 16,
+    "height": 169,
+    "weight": 52,
+    "bust": 0,
+    "hand": "Left"
+  },
+  {
+    "series": "sidem",
+    "name": "Akai Suzaku",
+    "age": 16,
+    "height": 170.7,
+    "weight": 65,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Asselin BB II",
+    "age": 26,
+    "height": 174,
+    "weight": 66,
+    "bust": 0,
+    "hand": "Both"
+  },
+  {
+    "series": "sidem",
+    "name": "Mizushima Saki",
+    "age": 18,
+    "height": 160,
+    "weight": 48,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Tachibana Shiro",
+    "age": 11,
+    "height": 139,
+    "weight": 34,
+    "bust": 0,
+    "hand": "Left"
+  },
+  {
+    "series": "sidem",
+    "name": "Taiga Takeru",
+    "age": 17,
+    "height": 165,
+    "weight": 52,
+    "bust": 0,
+    "hand": "Left"
+  },
+  {
+    "series": "sidem",
+    "name": "Enjoji Michiru",
+    "age": 24,
+    "height": 185,
+    "weight": 80,
+    "bust": 0,
+    "hand": "Both"
+  },
+  {
+    "series": "sidem",
+    "name": "Kizaki Ren",
+    "age": 18,
+    "height": 172,
+    "weight": 59,
+    "bust": 0,
+    "hand": "Both"
+  },
+  {
+    "series": "sidem",
+    "name": "Kabuto Daigo",
+    "age": 14,
+    "height": 160,
+    "weight": 52,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Mayumi Eishin",
+    "age": 18,
+    "height": 180,
+    "weight": 65,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Ijuuin Hokuto",
+    "age": 20,
+    "height": 180,
+    "weight": 64,
+    "bust": 86,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Sakuraba Kaoru",
+    "age": 26,
+    "height": 178,
+    "weight": 58,
+    "bust": 0,
+    "hand": "Both"
+  },
+  {
+    "series": "sidem",
+    "name": "Kagura Rei",
+    "age": 16,
+    "height": 165,
+    "weight": 52,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Takajo Kyoji",
+    "age": 20,
+    "height": 182,
+    "weight": 62,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Aoi Kyosuke",
+    "age": 18,
+    "height": 161,
+    "weight": 52,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Akuno Hideo",
+    "age": 23,
+    "height": 171,
+    "weight": 67,
+    "bust": 0,
+    "hand": "Left"
+  },
+  {
+    "series": "sidem",
+    "name": "Nekoyanagi Kirio",
+    "age": 18,
+    "height": 165,
+    "weight": 54,
+    "bust": 0,
+    "hand": "Both"
+  },
+  {
+    "series": "sidem",
+    "name": "Fuyumi Jun",
+    "age": 16,
+    "height": 158,
+    "weight": 49,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Sakaki Natsuki",
+    "age": 17,
+    "height": 170,
+    "weight": 54,
+    "bust": 0,
+    "hand": "Left"
+  },
+  {
+    "series": "sidem",
+    "name": "Kurono Genbu",
+    "age": 17,
+    "height": 190,
+    "weight": 65,
+    "bust": 0,
+    "hand": "Left"
+  },
+  {
+    "series": "sidem",
+    "name": "Shinonome Soichiro",
+    "age": 21,
+    "height": 177,
+    "weight": 65,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Okamura Nao",
+    "age": 11,
+    "height": 143,
+    "weight": 33,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Yamashita Jiro",
+    "age": 30,
+    "height": 185,
+    "weight": 70,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Hazama Michio",
+    "age": 32,
+    "height": 178,
+    "weight": 65,
+    "bust": 0,
+    "hand": "Left"
+  },
+  {
+    "series": "sidem",
+    "name": "Tsukumo Kazuki",
+    "age": 19,
+    "height": 178,
+    "weight": 64,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Kuzunoha Amehiko",
+    "age": 30,
+    "height": 191,
+    "weight": 74,
+    "bust": 0,
+    "hand": "Both"
+  },
+  {
+    "series": "sidem",
+    "name": "Koron Chris",
+    "age": 29,
+    "height": 187,
+    "weight": 58,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Amamine Shu",
+    "age": 16,
+    "height": 170,
+    "weight": 55,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Mitarai Shouta",
+    "age": 14,
+    "height": 163,
+    "weight": 49,
+    "bust": 77,
+    "hand": "Left"
+  },
+  {
+    "series": "sidem",
+    "name": "Kashiwagi Tsubasa",
+    "age": 24,
+    "height": 182,
+    "weight": 68,
+    "bust": 0,
+    "hand": "Left"
+  },
+  {
+    "series": "sidem",
+    "name": "Pierre",
+    "age": 15,
+    "height": 165,
+    "weight": 50,
+    "bust": 0,
+    "hand": "Both"
+  },
+  {
+    "series": "sidem",
+    "name": "Aoi Yusuke",
+    "age": 18,
+    "height": 161,
+    "weight": 52,
+    "bust": 0,
+    "hand": "Left"
+  },
+  {
+    "series": "sidem",
+    "name": "Shingen Seiji",
+    "age": 31,
+    "height": 185,
+    "weight": 78,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Hanamura Shoma",
+    "age": 27,
+    "height": 174,
+    "weight": 55,
+    "bust": 0,
+    "hand": "Left"
+  },
+  {
+    "series": "sidem",
+    "name": "Kiyosumi Kuro",
+    "age": 19,
+    "height": 178,
+    "weight": 67,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Wakazato Haruna",
+    "age": 18,
+    "height": 173,
+    "weight": 56,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Kamiya Yukihiro",
+    "age": 21,
+    "height": 181,
+    "weight": 64,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Uzuki Makio",
+    "age": 18,
+    "height": 163,
+    "weight": 52,
+    "bust": 0,
+    "hand": "Left"
+  },
+  {
+    "series": "sidem",
+    "name": "Himeno Kanon",
+    "age": 9,
+    "height": 125,
+    "weight": 22,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Maita Rui",
+    "age": 23,
+    "height": 170,
+    "weight": 58,
+    "bust": 0,
+    "hand": "Both"
+  },
+  {
+    "series": "sidem",
+    "name": "Akizuki Ryo",
+    "age": 15,
+    "height": 164,
+    "weight": 54,
+    "bust": 80,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Kitamura Sora",
+    "age": 19,
+    "height": 174,
+    "weight": 62,
+    "bust": 0,
+    "hand": "Right"
+  },
+  {
+    "series": "sidem",
+    "name": "Hanazono Momohito",
+    "age": 17,
+    "height": 177,
+    "weight": 58,
+    "bust": 0,
+    "hand": "Right"
   }
 ]
 
