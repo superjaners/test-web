@@ -40,6 +40,16 @@ footer {
     margin: 32px;
 }
 
+nav {
+    margin-top: 32px;
+    text-align: center;
+}
+
+a {
+    color: rgb(74, 167, 167);
+    font-size: 16px;
+}
+
 #area {
     display: flex;
     flex-direction: column;
@@ -54,10 +64,15 @@ footer {
     gap: 16px;
 }
 
+#save {
+    margin-bottom: 16px;
+}
+
 .save {
-    height: 48px;
-    width: 80px;
+    height: 32px;
+    width: 72px;
     cursor: pointer;
+    background-color: #ffffff;
 }
 
 .inputField {
