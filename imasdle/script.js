@@ -126,7 +126,11 @@ async function check(userGuess) {
     let guessStats = [guessedCharacter.bust, guessedCharacter.height, guessedCharacter.weight];
     let todayStats = [bg.a.bust, bg.a.height, bg.a.weight];
     let phase = [{type: "Bust", unit: ""}, {type: "Height", unit: "cm"}, {type: "Weight", unit: "kg"}];
-    if (series === "all") {
+
+    if (series === "all" || series === "sidem") {
+        guessStats.shift();
+        todayStats.shift();
+        phase.shift();
         guessStats.unshift(guessedCharacter.age);
         todayStats.unshift(bg.a.age);
         phase.unshift({type: "Age", unit: ""})
@@ -156,12 +160,11 @@ async function check(userGuess) {
         await addHintBox(history, hintBgImg, hintBgColor, hintText);
     }
 
-    if (series !== "all") {
-        let areEqual = "";
-        if (guessedCharacter.hand === bg.a.hand) {
-            areEqual = correct;
-        } else {areEqual = wrong;}
-        await addHintBox(history, "", areEqual, guessedCharacter.hand + "\nHanded")};
+    let areEqual = "";
+    if (guessedCharacter.hand === bg.a.hand) {
+        areEqual = correct;
+    } else {areEqual = wrong;}
+    await addHintBox(history, "", areEqual, guessedCharacter.hand + "\nHanded");
         
     if (userGuess == bg.a.name) {
         submitButton.hidden = true;
@@ -370,8 +373,8 @@ async function getTodaysQuote() {
     const list = await getDB();
     const todaysQuote = list[time % list.length];
     bg.a = todaysQuote.name;
-    document.getElementById("jp").textContent = `「${todaysQuote.jp}」`;
-    document.getElementById("en").textContent = `"${todaysQuote.en}"`;
+    document.getElementById("jp").textContent = `「${todaysQuote.japanese}」`;
+    document.getElementById("en").textContent = `"${todaysQuote.english}"`;
     names = list.map(item => item.name)
 }
 
@@ -400,5 +403,4 @@ document.addEventListener("keydown", (e) => {
         case "Enter":
             submit()
     }
-
 })
