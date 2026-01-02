@@ -299,7 +299,7 @@ function displayData() {
         deleteButton.addEventListener("click", () => {
             switch (mode) {
                 case "character":
-                    deleteEntry(i.name);
+                    deleteCharacter(i.name);
                     break;
                 case "quote":
                     deleteQuote(i);
@@ -383,4 +383,5 @@ async function loadJSON(json) {
             break;
     }
     warning.textContent = "Entries loaded."
+
 }
