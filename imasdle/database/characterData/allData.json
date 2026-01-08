@@ -609,7 +609,7 @@
     "name": "Takayama Sayoko",
     "series": "765",
     "weight": 42.0,
-    "age": 18
+    "age": 17
   },
   {
     "bust": 81.0,
@@ -1270,4 +1270,5 @@
     "hand": "Right"
   }
 ]
+
 
