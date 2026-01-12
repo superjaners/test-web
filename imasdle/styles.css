@@ -41,12 +41,12 @@ a {
 
 @font-face {
     font-family: gakuBold;
-    src: url(fonts/IBMPlexSansJP-Bold.ttf) format("truetype");
+    src: url(../fonts/IBMPlexSansJP-Bold.ttf) format("truetype");
 }
 
 @font-face {
     font-family: gaku;
-    src: url(fonts/IBMPlexSansJP-Medium.ttf) format("truetype");
+    src: url(../fonts/IBMPlexSansJP-Medium.ttf) format("truetype");
 }
 
 .suggestion {
@@ -192,4 +192,5 @@ a {
     justify-content: center;
     align-items: center;
     gap: 16px
+
 }
