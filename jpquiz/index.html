@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Vocab Pro - Matrix Mode</title>
+    <style>
+        :root { --primary: #2c3e50; --accent: #e74c3c; --bg: #f4f7f6; --success: #27ae60; --light: #ecf0f1; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--primary); padding: 20px; max-width: 900px; margin: auto; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+        .flex-row { display: flex; gap: 10px; align-items: center; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        
+        /* Library */
+        .set-item { border-bottom: 1px solid #eee; padding: 8px 0; display: flex; align-items: center; justify-content: space-between; }
+        .set-info { display: flex; align-items: center; flex: 1; gap: 10px; overflow: hidden; }
+        .set-name-input { font-weight: bold; border: 1px solid transparent; background: transparent; padding: 5px; font-size: 1rem; max-width: 250px; text-overflow: ellipsis; }
+        .set-name-input:hover { border-color: #ddd; background: #fff; }
+        .set-name-input:focus { border-color: var(--primary); background: #fff; outline: none; width: 300px; }
+        
+        .btn { padding: 8px 12px; cursor: pointer; border: none; border-radius: 4px; background: var(--primary); color: white; font-weight: bold; margin-left: 4px; font-size: 0.85rem; }
+        .btn-green { background: var(--success); }
+        .btn-delete { background: var(--accent); }
+        .btn-alt { background: #7f8c8d; }
+        
+        #quiz-area, #results-area, #manage-area { display: none; }
+        .question-text { font-size: 3.5rem; text-align: center; margin: 20px 0; font-weight: bold; color: #333; }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .option-btn { padding: 20px; border: 2px solid var(--primary); background: white; cursor: pointer; font-size: 1.2rem; border-radius: 8px; }
+        
+        #typing-container { display: none; flex-direction: column; align-items: center; gap: 10px; }
+        #answer-input { font-size: 1.8rem; text-align: center; padding: 12px; border: 3px solid var(--primary); width: 100%; max-width: 400px; border-radius: 8px; }
+        
+        .mistake-list { text-align: left; margin-top: 20px; background: #fff5f5; padding: 15px; border-radius: 8px; border: 1px solid #feb2b2; }
+        .mistake-item { border-bottom: 1px solid #fed7d7; padding: 5px 0; font-size: 0.95rem; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    </style>
+</head>
+<body>
+
+    <div id="home-screen">
+        <h1>日本語 Vocab Manager</h1>
+        <div class="card">
+            <h2>Add Word</h2>
+            <div class="grid-3">
+                <input type="text" id="in-kanji" placeholder="Kanji (Optional)">
+                <input type="text" id="in-furi" placeholder="Furigana/Hiragana">
+                <input type="text" id="in-eng" placeholder="English Meaning">
+            </div>
+            <div class="flex-row">
+                <input type="text" id="target-set" placeholder="Set Name" list="existing-sets">
+                <datalist id="existing-sets"></datalist>
+                <button class="btn btn-green" onclick="addSingleWord()" style="padding: 10px 20px; white-space:nowrap;">Add Word</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Library & Quiz Settings</h2>
+            <div id="set-list"></div>
+            
+            <div style="margin-top: 20px; border-top: 2px solid #eee; padding-top: 20px;">
+                <div class="grid-3" style="grid-template-columns: 1fr 1fr 0.5fr;">
+                    <label>Question: 
+                        <select id="q-param">
+                            <option value="eng">English</option>
+                            <option value="fr">Furigana</option>
+                            <option value="kj">Kanji</option>
+                            <option value="jp">Japanese</option>
+                        </select>
+                    </label>
+                    <label>Answer: 
+                        <select id="a-param">
+                            <option value="jp">Japanese</option>
+                            <option value="eng">English</option>
+                            <option value="fr">Furigana</option>
+                            <option value="kj">Kanji</option>
+                            <option value="type-fr">Type Hiragana</option>
+                        </select>
+                    </label>
+                    <label>Choices: <input type="number" id="opt-count" value="4" min="2" max="8"></label>
+                </div>
+                <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
+                    <button class="btn btn-green" onclick="startQuiz('all')">Quiz All Combined</button>
+                    <div>
+                        <button class="btn btn-alt" onclick="exportLibrary()">Export Backup</button>
+                        <input type="file" id="import-file" style="display:none" onchange="importLibrary(event)">
+                        <button class="btn btn-alt" onclick="document.getElementById('import-file').click()">Import File</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="manage-area" class="card">
+        <h2 id="manage-title">Manage Set</h2>
+        <input type="text" id="search-bar" placeholder="Search..." onkeyup="filterTable()" style="margin-bottom:10px">
+        <div style="max-height: 400px; overflow-y: auto;">
+            <table id="manage-table">
+                <thead><tr><th>Kanji</th><th>Furigana</th><th>English</th><th>Action</th></tr></thead>
+                <tbody id="manage-body"></tbody>
+            </table>
+        </div>
+        <div style="margin-top:20px"><button class="btn btn-alt" onclick="exportSet()">Export This Set</button> <button class="btn" onclick="showHome()">Close</button></div>
+    </div>
+
+    <div id="quiz-area" class="card">
+        <div id="progress" style="text-align: center; color: #888;"></div>
+        <div class="question-text" id="question-display"></div>
+        <div class="options-grid" id="options-container"></div>
+        <div id="typing-container">
+            <input type="text" id="answer-input" placeholder="Type answer..." autocomplete="off">
+            <button class="btn btn-alt" onclick="showHint()" style="margin-top:10px">Show Hint</button>
+        </div>
+        <p id="feedback" style="min-height: 25px; margin-top: 15px; text-align: center; font-weight:bold;"></p>
+        <div style="text-align: center; margin-top: 20px;"><button class="btn btn-alt" onclick="showHome()">Quit</button></div>
+    </div>
+
+    <div id="results-area" class="card" style="text-align: center;">
+        <h2>Results</h2>
+        <div style="font-size: 3rem; font-weight: bold; color: var(--success);" id="final-score"></div>
+        <div id="mistake-review" class="mistake-list" style="display:none;">
+            <h3 style="margin-top:0; color: var(--accent);">Review Mistakes:</h3>
+            <div id="mistake-items"></div>
+        </div>
+        <div style="margin-top: 20px;"><button class="btn btn-green" id="retry-btn">Retry</button> <button class="btn" onclick="showHome()">Home</button></div>
+    </div>
+
+<script>
+    let library = JSON.parse(localStorage.getItem('vocabLibrary')) || {};
+    let pool = [], curIdx = 0, score = 0, lastS = '', mistakes = [], currentEditingSet = null;
+
+    function save() { localStorage.setItem('vocabLibrary', JSON.stringify(library)); }
+    function renderLibrary() {
+        const list = document.getElementById('set-list');
+        const dlist = document.getElementById('existing-sets');
+        list.innerHTML = ''; dlist.innerHTML = '';
+        Object.keys(library).forEach(name => {
+            const opt = document.createElement('option'); opt.value = name; dlist.appendChild(opt);
+            const div = document.createElement('div'); div.className = 'set-item';
+            div.innerHTML = `<div class="set-info"><input type="text" class="set-name-input" value="${name}" onchange="renameSet('${name}', this.value)"><span>(${library[name].length})</span></div><div><button class="btn btn-alt" onclick="manageSet('${name}')">Manage</button> <button class="btn" onclick="startQuiz('${name}')">Quiz</button> <button class="btn btn-delete" onclick="deleteSet('${name}')">Del</button></div>`;
+            list.appendChild(div);
+        });
+    }
+
+    function renameSet(o, n) { n=n.trim(); if(!n||o===n) return renderLibrary(); library[n]=(library[n]||[]).concat(library[o]); delete library[o]; save(); renderLibrary(); }
+    function addSingleWord() {
+        const k=document.getElementById('in-kanji').value, f=document.getElementById('in-furi').value, e=document.getElementById('in-eng').value, s=document.getElementById('target-set').value;
+        if(!f||!e||!s) return alert("Required fields missing");
+        if(!library[s]) library[s]=[]; library[s].push({kanji:k, furigana:f, english:e}); save(); renderLibrary();
+    }
+    
+    function startQuiz(sn) {
+        lastS = sn; mistakes = [];
+        let p = (sn === 'all') ? Object.values(library).flat() : [...library[sn]];
+        const qP = document.getElementById('q-param').value;
+        const aP = document.getElementById('a-param').value;
+
+        // Filter: If Kanji is involved on either side, only use words with Kanji
+        if(qP === 'kj' || aP === 'kj') p = p.filter(w => w.kanji && w.kanji.trim() !== "");
+        if(p.length < 1) return alert("No valid words for this specific combination!");
+
+        pool = p.sort(() => Math.random() - 0.5); curIdx = 0; score = 0;
+        document.getElementById('home-screen').style.display='none';
+        document.getElementById('quiz-area').style.display='block';
+        showQuestion();
+    }
+
+    function getDisplay(word, type) {
+        if(type === 'eng') return word.english;
+        if(type === 'fr' || type === 'type-fr') return word.furigana;
+        if(type === 'kj') return word.kanji || word.furigana;
+        if(type === 'jp') return word.kanji ? `${word.kanji} (${word.furigana})` : word.furigana;
+        return "";
+    }
+
+    function showQuestion() {
+        const w = pool[curIdx];
+        const qP = document.getElementById('q-param').value;
+        const aP = document.getElementById('a-param').value;
+        
+        document.getElementById('progress').innerText = `Word ${curIdx + 1} / ${pool.length}`;
+        document.getElementById('feedback').innerText = "";
+        document.getElementById('question-display').innerText = getDisplay(w, qP);
+
+        if (aP === 'type-fr') {
+            document.getElementById('options-container').style.display = 'none';
+            document.getElementById('typing-container').style.display = 'flex';
+            const input = document.getElementById('answer-input'); input.value = ""; input.focus();
+            input.onkeypress = (e) => { if(e.key === 'Enter') checkAnswer(input.value.trim(), getDisplay(w, 'fr')); };
+        } else {
+            document.getElementById('options-container').style.display = 'grid';
+            document.getElementById('typing-container').style.display = 'none';
+            generateMatrixButtons(w, aP);
+        }
+    }
+
+    function generateMatrixButtons(correctWord, aType) {
+        const cont = document.getElementById('options-container'); cont.innerHTML = "";
+        const correctText = getDisplay(correctWord, aType);
+        const oc = Math.min(parseInt(document.getElementById('opt-count').value), pool.length);
+        
+        let opts = [correctText];
+        let d = [...pool].sort(() => Math.random() - 0.5);
+        for(let x of d) {
+            if(opts.length >= oc) break;
+            let t = getDisplay(x, aType);
+            if(!opts.includes(t)) opts.push(t);
+        }
+        
+        opts.sort(() => Math.random() - 0.5).forEach(o => {
+            const b = document.createElement('button'); b.className = 'option-btn'; b.innerText = o;
+            b.onclick = () => checkAnswer(o, correctText); cont.appendChild(b);
+        });
+    }
+
+    function checkAnswer(uA, cA) {
+        if(uA === cA) { score++; curIdx++; if(curIdx < pool.length) showQuestion(); else finish(); }
+        else {
+            document.getElementById('feedback').innerText = "❌ Incorrect";
+            if(!mistakes.includes(pool[curIdx])) mistakes.push(pool[curIdx]);
+            if(document.getElementById('answer-input')) { document.getElementById('answer-input').value = ""; }
+        }
+    }
+
+    function showHint() { 
+        const w = pool[curIdx];
+        document.getElementById('feedback').innerText = `Hint: ${w.english} | ${w.furigana}`;
+    }
+
+    function finish() {
+        document.getElementById('quiz-area').style.display='none'; document.getElementById('results-area').style.display='block';
+        document.getElementById('final-score').innerText = `${score} / ${pool.length}`;
+        const rev = document.getElementById('mistake-review'); const items = document.getElementById('mistake-items');
+        if(mistakes.length > 0) {
+            rev.style.display = 'block'; items.innerHTML = '';
+            mistakes.forEach(m => {
+                const d = document.createElement('div'); d.className = 'mistake-item';
+                d.innerHTML = `<strong>${m.kanji || ''}</strong> [${m.furigana}] — ${m.english}`;
+                items.appendChild(d);
+            });
+        } else { rev.style.display = 'none'; }
+    }
+
+    function showHome() { document.getElementById('home-screen').style.display='block'; document.getElementById('quiz-area').style.display='none'; document.getElementById('results-area').style.display='none'; document.getElementById('manage-area').style.display='none'; renderLibrary(); }
+    function manageSet(n) {
+        currentEditingSet=n; document.getElementById('home-screen').style.display='none'; document.getElementById('manage-area').style.display='block';
+        const body=document.getElementById('manage-body'); body.innerHTML='';
+        library[n].forEach((w,i)=>{
+            const tr=document.createElement('tr');
+            tr.innerHTML=`<td><input class="edit-input" value="${w.kanji}" onchange="uWord(${i},'kanji',this.value)"></td><td><input class="edit-input" value="${w.furigana}" onchange="uWord(${i},'furigana',this.value)"></td><td><input class="edit-input" value="${w.english}" onchange="uWord(${i},'english',this.value)"></td><td><button class="btn btn-delete" onclick="dWord(${i})">Del</button></td>`;
+            body.appendChild(tr);
+        });
+    }
+    function uWord(i,f,v){ library[currentEditingSet][i][f]=v; save(); }
+    function dWord(i){ library[currentEditingSet].splice(i,1); save(); manageSet(currentEditingSet); }
+    function deleteSet(n) { if(confirm("Delete set?")) { delete library[n]; save(); renderLibrary(); } }
+    function exportLibrary() { downloadFile(library, "full_backup.json"); }
+    function exportSet() { let o={}; o[currentEditingSet]=library[currentEditingSet]; downloadFile(o, `${currentEditingSet}_set.json`); }
+    function downloadFile(data, name) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(data)])); a.download = name; a.click(); }
+    function importLibrary(e) {
+        const r = new FileReader(); r.onload = (ev) => { 
+            const data = JSON.parse(ev.target.result); 
+            Object.keys(data).forEach(k => { library[k] = (library[k] || []).concat(data[k]); });
+            save(); renderLibrary();
+        };
+        r.readAsText(e.target.files[0]);
+    }
+    renderLibrary();
+</script>
+</body>
+</html>
