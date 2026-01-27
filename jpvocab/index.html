@@ -9,51 +9,43 @@
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--primary); padding: 20px; max-width: 900px; margin: auto; }
         .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
         
-        /* Success Animation for the Add Word Box */
         @keyframes flash-green { 0% { background-color: white; } 50% { background-color: #dcfce7; } 100% { background-color: white; } }
         .animate-success { animation: flash-green 0.8s ease-out; }
 
-        /* Stacked Toast Styles */
-        #toast-container {
-            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
-            display: flex; flex-direction: column-reverse; gap: 10px; z-index: 1000;
-        }
-        .toast-message {
-            min-width: 280px; color: #fff; text-align: center; border-radius: 8px;
-            padding: 14px 20px; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            animation: toast-in 0.4s ease, toast-out 0.5s 2.5s forwards;
-        }
+        #toast-container { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column-reverse; gap: 10px; z-index: 1000; }
+        .toast-message { min-width: 280px; color: #fff; text-align: center; border-radius: 8px; padding: 14px 20px; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); animation: toast-in 0.4s ease, toast-out 0.5s 2.5s forwards; }
         @keyframes toast-in { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         @keyframes toast-out { from { opacity: 1; } to { opacity: 0; transform: translateY(-10px); } }
 
-        /* Library Layout Fix */
-        .set-item { 
-            display: grid; grid-template-columns: 40px 1fr auto; 
-            align-items: center; border-bottom: 1px solid #eee; padding: 12px 0; 
-        }
+        /* Library List Layout */
+        .set-item { display: grid; grid-template-columns: 40px 1fr auto; align-items: center; border-bottom: 1px solid #eee; padding: 12px 0; }
         .set-name-group { display: flex; align-items: center; gap: 8px; overflow: hidden; }
-        .set-name-group strong { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .set-actions { display: flex; gap: 6px; padding-left: 10px; }
+        .set-actions { display: flex; gap: 5px; padding-left: 10px; }
 
-        /* Forms & Buttons */
         .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
         input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
-        .btn { padding: 10px 15px; cursor: pointer; border: none; border-radius: 4px; background: var(--primary); color: white; font-weight: bold; font-size: 0.85rem; white-space: nowrap; transition: filter 0.2s; }
-        .btn:hover { filter: brightness(1.1); }
+        .btn { padding: 10px 12px; cursor: pointer; border: none; border-radius: 4px; background: var(--primary); color: white; font-weight: bold; font-size: 0.8rem; transition: filter 0.2s; }
         .btn-green { background: var(--success); }
         .btn-delete { background: var(--accent); }
         .btn-alt { background: #7f8c8d; }
+        .btn-export { background: #3498db; } /* Blue for Export */
         
-        #quiz-area, #manage-area { display: none; }
+        #quiz-area, #manage-area, #results-area { display: none; }
         .question-text { font-size: 3.5rem; text-align: center; margin: 30px 0; font-weight: bold; }
         .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .option-btn { padding: 25px; border: 2px solid var(--primary); background: white; cursor: pointer; font-size: 1.3rem; border-radius: 12px; transition: 0.2s; }
-        .option-btn.correct { background: var(--success) !important; color: white; border-color: var(--success); }
-        .option-btn.wrong { background: var(--accent) !important; color: white; border-color: var(--accent); }
+        .option-btn { padding: 25px; border: 2px solid var(--primary); background: white; cursor: pointer; font-size: 1.3rem; border-radius: 12px; }
+        .option-btn.correct { background: var(--success) !important; color: white; }
+        .option-btn.wrong { background: var(--accent) !important; color: white; }
         
+        #type-area { display: none; text-align: center; margin-top: 20px; }
+        .type-container { display: flex; justify-content: center; align-items: stretch; }
+        #type-input { font-size: 1.5rem; text-align: center; padding: 15px; width: 80%; max-width: 400px; border: 3px solid var(--primary); border-radius: 8px 0 0 8px; }
+        .btn-submit { border-radius: 0 8px 8px 0; padding: 0 25px; font-size: 1.1rem; }
+
+        .wrong-list { margin-top: 20px; text-align: left; background: #fff5f5; padding: 15px; border-radius: 8px; border: 1px solid #feb2b2; max-height: 250px; overflow-y: auto; }
+        .wrong-item { border-bottom: 1px solid #fed7d7; padding: 8px 0; display: flex; justify-content: space-between; }
         table { width: 100%; border-collapse: collapse; margin-top: 15px; }
         th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background: var(--light); }
     </style>
     <meta property="og:title" content="日本語 Vocab Manager">
     <meta property="og:description" content="Manage and quiz your own Japanese vocabulary.">
@@ -66,34 +58,36 @@
 
     <div id="home-screen">
         <h1>日本語 Vocab Manager</h1>
-        
         <div id="add-word-container" class="card">
             <h2>Add Word</h2>
             <div class="grid-3">
                 <input type="text" id="in-kanji" placeholder="Kanji (Optional)">
-                <input type="text" id="in-furi" placeholder="Hiragana/Furigana *">
-                <input type="text" id="in-eng" placeholder="English Translation *">
+                <input type="text" id="in-furi" placeholder="Hiragana *">
+                <input type="text" id="in-eng" placeholder="English *">
             </div>
             <div style="display: flex; gap: 10px;">
                 <select id="set-selector" onchange="checkNewSet(this.value)"></select>
-                <button class="btn btn-green" onclick="addSingleWord()" style="padding: 12px 25px;">Add to Set</button>
+                <button class="btn btn-green" onclick="addSingleWord()" style="padding: 12px 25px; font-size: 1rem;">Add to Set</button>
             </div>
         </div>
 
         <div class="card">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                 <h2>Library</h2>
-                <label style="font-size: 0.9rem; cursor: pointer; user-select: none;">
-                    <input type="checkbox" id="select-all" onclick="toggleAll(this.checked)"> Select All
-                </label>
+                <label style="font-size: 0.9rem; cursor: pointer;"><input type="checkbox" id="select-all" onclick="toggleAll(this.checked)"> Select All</label>
             </div>
             <div id="set-list"></div>
             
             <div style="margin-top: 25px; border-top: 2px solid #eee; padding-top: 20px;">
-                <h3>Global Actions</h3>
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <button class="btn btn-green" onclick="quizSelected()">Quiz Selected Sets</button>
-                    <button class="btn btn-alt" onclick="exportLibrary()">Backup All (JSON)</button>
+                <h3>Quiz Settings</h3>
+                <div class="grid-3">
+                    <label>Question:<br><select id="q-param"><option value="jp">Japanese</option><option value="eng">English</option><option value="hi">Hiragana</option><option value="kj">Kanji</option></select></label>
+                    <label>Answer:<br><select id="a-param"><option value="eng">English</option><option value="jp">Japanese</option><option value="hi">Hiragana</option><option value="kj">Kanji</option><option value="type-hi">Type Hiragana</option></select></label>
+                    <label>Choices:<br><input type="number" id="opt-count" value="4" min="2" max="6"></label>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                    <button class="btn btn-green" onclick="quizSelected()" style="font-size: 0.9rem;">Quiz Selected</button>
+                    <button class="btn btn-alt" onclick="exportLibrary()">Full Backup (JSON)</button>
                     <button class="btn btn-alt" onclick="document.getElementById('import-input').click()">Import JSON</button>
                     <input type="file" id="import-input" style="display:none" accept=".json" onchange="importLibrary(event)">
                 </div>
@@ -101,172 +95,213 @@
         </div>
     </div>
 
-    <div id="manage-area" class="card">
-        <h2 id="manage-title">Edit Set</h2>
-        <div style="max-height: 500px; overflow-y: auto;">
-            <table>
-                <thead><tr><th>Kanji</th><th>Furigana</th><th>English</th><th>Action</th></tr></thead>
-                <tbody id="manage-body"></tbody>
-            </table>
-        </div>
-        <div style="margin-top: 20px; display: flex; gap: 10px;">
-            <button class="btn btn-green" onclick="exportSingleSet()">Export This Set</button>
-            <button class="btn" onclick="showHome()">Close & Save</button>
-        </div>
-    </div>
-
     <div id="quiz-area" class="card">
         <div id="progress" style="text-align: center; color: #888; font-weight: bold;"></div>
         <div class="question-text" id="question-display"></div>
         <div class="options-grid" id="options-container"></div>
+        <div id="type-area">
+            <div class="type-container">
+                <input type="text" id="type-input" placeholder="Type hiragana..." autocomplete="off">
+                <button class="btn btn-green btn-submit" onclick="submitTypeAnswer()">Submit</button>
+            </div>
+        </div>
         <div style="text-align: center; margin-top: 30px;"><button class="btn btn-alt" onclick="showHome()">Quit Quiz</button></div>
+    </div>
+
+    <div id="results-area" class="card" style="text-align: center;">
+        <h2>Quiz Results</h2>
+        <div style="font-size: 3rem; margin: 20px 0;" id="final-score-text"></div>
+        <div id="mistakes-container">
+            <h3>Review Mistakes:</h3>
+            <div class="wrong-list" id="wrong-list"></div>
+        </div>
+        <button class="btn btn-green" onclick="showHome()" style="margin-top:20px; padding: 15px 40px; font-size: 1rem;">Back to Home</button>
+    </div>
+
+    <div id="manage-area" class="card">
+        <h2 id="manage-title">Edit Set</h2>
+        <div style="max-height: 400px; overflow-y: auto;"><table><thead><tr><th>Kanji</th><th>Hiragana</th><th>English</th><th>Action</th></tr></thead><tbody id="manage-body"></tbody></table></div>
+        <div style="margin-top: 20px;"><button class="btn" onclick="showHome()">Close & Save</button></div>
     </div>
 
 <script>
     let library = JSON.parse(localStorage.getItem('vocabLibrary')) || {};
-    let currentEditingSet = null;
-    let pool = [], curIdx = 0, score = 0, quizLocked = false;
+    let currentEditingSet = null, pool = [], curIdx = 0, score = 0, quizLocked = false, mistakes = [];
 
-    // --- NOTIFICATION SYSTEM ---
     function showToast(msg, color = "#333") {
-        const container = document.getElementById("toast-container");
-        const toast = document.createElement("div");
-        toast.className = "toast-message";
-        toast.innerText = msg;
-        toast.style.backgroundColor = color;
-        container.appendChild(toast);
-        setTimeout(() => { toast.remove(); }, 3000);
+        const c = document.getElementById("toast-container");
+        const t = document.createElement("div"); t.className = "toast-message"; t.innerText = msg;
+        t.style.backgroundColor = color; c.appendChild(t);
+        setTimeout(() => t.remove(), 3000);
     }
 
     function save() { localStorage.setItem('vocabLibrary', JSON.stringify(library)); }
 
     function renderLibrary() {
-        const list = document.getElementById('set-list'), selector = document.getElementById('set-selector');
-        const currentSelected = selector.value;
-        list.innerHTML = ''; 
-        selector.innerHTML = '<option value="" disabled selected>Select Set...</option><option value="NEW_SET">+ Create New Set...</option>';
-        
-        Object.keys(library).forEach(name => {
-            const opt = document.createElement('option'); opt.value = name; opt.innerText = name;
-            selector.appendChild(opt);
-            
-            const div = document.createElement('div'); div.className = 'set-item';
-            div.innerHTML = `
-                <input type="checkbox" class="set-checkbox" data-set="${name}" style="width:18px;height:18px;">
-                <div class="set-name-group">
-                    <strong>${name}</strong> <span style="color:#888; font-size:0.8rem;">(${library[name].length} words)</span>
-                </div>
+        const l = document.getElementById('set-list'), s = document.getElementById('set-selector');
+        const cur = s.value; l.innerHTML = ''; 
+        s.innerHTML = '<option value="" disabled selected>Select Set...</option><option value="NEW_SET">+ Create New Set...</option>';
+        Object.keys(library).forEach(n => {
+            const opt = document.createElement('option'); opt.value = n; opt.innerText = n; s.appendChild(opt);
+            const d = document.createElement('div'); d.className = 'set-item';
+            d.innerHTML = `
+                <input type="checkbox" class="set-checkbox" data-set="${n}">
+                <div class="set-name-group"><strong>${n}</strong> <span style="color:#888">(${library[n].length})</span></div>
                 <div class="set-actions">
-                    <button class="btn btn-alt" onclick="manageSet('${name}')">Edit</button>
-                    <button class="btn" onclick="startQuiz(library['${name}'])">Quiz</button>
-                    <button class="btn btn-delete" onclick="deleteSet('${name}')">Del</button>
+                    <button class="btn btn-alt" onclick="manageSet('${n}')">Edit</button>
+                    <button class="btn" onclick="startQuiz(library['${n}'])">Quiz</button>
+                    <button class="btn btn-export" onclick="exportSingleSet('${n}')">Export</button>
+                    <button class="btn btn-delete" onclick="deleteSet('${n}')">Del</button>
                 </div>`;
-            list.appendChild(div);
+            l.appendChild(d);
         });
-        if (currentSelected && library[currentSelected]) selector.value = currentSelected;
+        if (cur && library[cur]) s.value = cur;
     }
 
-    // --- CORE FEATURES ---
-    function addSingleWord() {
-        const k = document.getElementById('in-kanji'), f = document.getElementById('in-furi'), 
-              e = document.getElementById('in-eng'), s = document.getElementById('set-selector').value;
-        const container = document.getElementById('add-word-container');
-        
-        if (!s) return showToast("Please select a Set first!", "#e74c3c");
-        if (!f.value.trim()) { f.focus(); return showToast("Hiragana/Furigana is required!", "#e74c3c"); }
-        if (!e.value.trim()) { e.focus(); return showToast("English translation is required!", "#e74c3c"); }
-
-        library[s].push({ kanji: k.value.trim() || null, furigana: f.value.trim(), english: e.value.trim() });
-        save(); renderLibrary();
-        
-        showToast("Word saved successfully!", "#27ae60");
-        
-        
-        k.value = ''; f.value = ''; e.value = ''; f.focus();
+    // --- LOGIC FUNCTIONS ---
+    function getVal(w, type) {
+        if (type === 'jp') return w.kanji ? `${w.kanji} (${w.furigana})` : w.furigana;
+        if (type === 'eng') return w.english;
+        if (type === 'hi') return w.furigana;
+        if (type === 'kj' || type === 'type-hi') return w.kanji || w.furigana;
+        return "";
     }
 
-    function importLibrary(event) {
-        const file = event.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            try {
-                const imported = JSON.parse(e.target.result);
-                Object.keys(imported).forEach(setName => {
-                    if (library[setName]) {
-                        if (confirm(`Set "${setName}" exists. Merge words?`)) library[setName] = [...library[setName], ...imported[setName]];
-                    } else library[setName] = imported[setName];
-                });
-                save(); renderLibrary(); showToast("Import Successful!", "#27ae60");
-            } catch (err) { showToast("Error: Invalid JSON file", "#e74c3c"); }
-            event.target.value = '';
-        };
-        reader.readAsText(file);
-    }
-
-    // --- QUIZ LOGIC ---
     function startQuiz(quizPool) {
-        if(!quizPool || quizPool.length === 0) return showToast("No words in this set!", "#e74c3c");
-        score = 0; curIdx = 0; pool = [...quizPool].sort(() => Math.random() - 0.5);
+        if(!quizPool || quizPool.length === 0) return showToast("Set is empty!", "#e74c3c");
+        score = 0; curIdx = 0; mistakes = [];
+        pool = [...quizPool].sort(() => Math.random() - 0.5);
         document.getElementById('home-screen').style.display = 'none';
+        document.getElementById('results-area').style.display = 'none';
         document.getElementById('quiz-area').style.display = 'block';
         showQuestion();
     }
 
     function showQuestion() {
         quizLocked = false; const w = pool[curIdx];
-        document.getElementById('progress').innerText = `Progress: ${curIdx+1} / ${pool.length}`;
-        document.getElementById('question-display').innerText = w.kanji ? `${w.kanji} (${w.furigana})` : w.furigana;
+        const aP = document.getElementById('a-param').value;
+        const qP = document.getElementById('q-param').value;
+        document.getElementById('progress').innerText = `Question ${curIdx+1} / ${pool.length}`;
+        document.getElementById('question-display').innerText = getVal(w, qP);
+        const cont = document.getElementById('options-container');
+        const typeArea = document.getElementById('type-area');
         
-        const cont = document.getElementById('options-container'); cont.innerHTML = "";
-        let opts = [w.english], others = pool.filter(x => x.english !== w.english).map(x => x.english);
-        while(opts.length < 4 && others.length > 0) {
-            let rand = others.splice(Math.floor(Math.random()*others.length), 1)[0];
-            if(!opts.includes(rand)) opts.push(rand);
+        if (aP === 'type-hi') {
+            cont.style.display = 'none'; typeArea.style.display = 'block';
+            const input = document.getElementById('type-input');
+            input.value = ''; input.focus();
+            input.onkeydown = (e) => { if(e.key === 'Enter') submitTypeAnswer(); };
+        } else {
+            cont.style.display = 'grid'; typeArea.style.display = 'none';
+            cont.innerHTML = '';
+            const correct = getVal(w, aP);
+            let opts = [correct];
+            let others = [...new Set(pool.map(x => getVal(x, aP)).filter(x => x !== correct))];
+            while(opts.length < parseInt(document.getElementById('opt-count').value) && others.length > 0) {
+                opts.push(others.splice(Math.floor(Math.random()*others.length), 1)[0]);
+            }
+            opts.sort(() => Math.random() - 0.5).forEach(o => {
+                const b = document.createElement('button'); b.className = 'option-btn'; b.innerText = o;
+                b.onclick = () => handleAnswer(o === correct, b);
+                cont.appendChild(b);
+            });
         }
-        
-        opts.sort(() => Math.random() - 0.5).forEach(o => {
-            const b = document.createElement('button'); b.className = 'option-btn'; b.innerText = o;
-            b.onclick = () => {
-                if(quizLocked) return; quizLocked = true;
-                if(o === w.english) { b.classList.add('correct'); score++; } else b.classList.add('wrong');
-                setTimeout(() => {
-                    curIdx++; if(curIdx < pool.length) showQuestion();
-                    else { showToast(`Final Score: ${score}/${pool.length}`, "#2c3e50"); showHome(); }
-                }, 700);
-            };
-            cont.appendChild(b);
-        });
     }
 
-    // --- MANAGEMENT ---
+    function submitTypeAnswer() {
+        const input = document.getElementById('type-input');
+        handleAnswer(input.value.trim() === pool[curIdx].furigana, input);
+    }
+
+    function handleAnswer(isCorrect, element) {
+        if (quizLocked) return;
+        quizLocked = true;
+        if (isCorrect) { element.classList.add('correct'); score++; } 
+        else { element.classList.add('wrong'); mistakes.push(pool[curIdx]); }
+        setTimeout(() => {
+            curIdx++;
+            if (curIdx < pool.length) showQuestion();
+            else finishQuiz();
+        }, 600);
+    }
+
+    function finishQuiz() {
+        document.getElementById('quiz-area').style.display = 'none';
+        document.getElementById('results-area').style.display = 'block';
+        document.getElementById('final-score-text').innerText = `${score} / ${pool.length}`;
+        const list = document.getElementById('wrong-list');
+        list.innerHTML = '';
+        if (mistakes.length > 0) {
+            document.getElementById('mistakes-container').style.display = 'block';
+            mistakes.forEach(w => {
+                const item = document.createElement('div'); item.className = 'wrong-item';
+                item.innerHTML = `<span><strong>${w.kanji || w.furigana}</strong></span> <span>${w.furigana} - ${w.english}</span>`;
+                list.appendChild(item);
+            });
+        } else document.getElementById('mistakes-container').style.display = 'none';
+    }
+
+    function addSingleWord() {
+        const k = document.getElementById('in-kanji'), f = document.getElementById('in-furi'), e = document.getElementById('in-eng'), s = document.getElementById('set-selector').value;
+        if (!s || !f.value.trim() || !e.value.trim()) return showToast("Missing fields!", "#e74c3c");
+        library[s].push({ kanji: k.value.trim() || null, furigana: f.value.trim(), english: e.value.trim() });
+        save(); renderLibrary(); showToast("Word Added!", "#27ae60");
+        k.value = ''; f.value = ''; e.value = ''; f.focus();
+    }
+
     function manageSet(n) {
         currentEditingSet = n; document.getElementById('home-screen').style.display = 'none'; document.getElementById('manage-area').style.display = 'block';
         document.getElementById('manage-title').innerText = `Editing: ${n}`;
         const body = document.getElementById('manage-body'); body.innerHTML = '';
         library[n].forEach((w, i) => {
             const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td><input style="border:none" value="${w.kanji || ''}" onchange="uW(${i},'kanji',this.value)"></td>
-                <td><input style="border:none" value="${w.furigana}" onchange="uW(${i},'furigana',this.value)"></td>
-                <td><input style="border:none" value="${w.english}" onchange="uW(${i},'english',this.value)"></td>
-                <td><button class="btn btn-delete" onclick="dW(${i})">Delete</button></td>`;
+            tr.innerHTML = `<td><input value="${w.kanji||''}" onchange="uW(${i},'kanji',this.value)"></td><td><input value="${w.furigana}" onchange="uW(${i},'furigana',this.value)"></td><td><input value="${w.english}" onchange="uW(${i},'english',this.value)"></td><td><button class="btn btn-delete" onclick="dW(${i})">Del</button></td>`;
             body.appendChild(tr);
         });
     }
 
-    function uW(i,f,v){ library[currentEditingSet][i][f]=v || null; save(); }
+    function uW(i,f,v){ library[currentEditingSet][i][f]=v; save(); }
     function dW(i){ library[currentEditingSet].splice(i,1); save(); manageSet(currentEditingSet); }
-    function deleteSet(n) { if(confirm(`Permanently delete "${n}"?`)) { delete library[n]; save(); renderLibrary(); showToast("Set Deleted"); } }
-    function showHome() { document.getElementById('home-screen').style.display='block'; document.getElementById('manage-area').style.display='none'; document.getElementById('quiz-area').style.display='none'; renderLibrary(); }
-    function exportLibrary() { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(library)])); a.download = "full_library_backup.json"; a.click(); }
-    function exportSingleSet() { const d = {}; d[currentEditingSet] = library[currentEditingSet]; const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(d)])); a.download = `${currentEditingSet}.json`; a.click(); }
-    function toggleAll(checked) { document.querySelectorAll('.set-checkbox').forEach(cb => cb.checked = checked); }
-    function quizSelected() { const checked = Array.from(document.querySelectorAll('.set-checkbox:checked')).map(cb => cb.dataset.set); if (checked.length === 0) return showToast("Select at least one set!", "#e74c3c"); startQuiz(checked.flatMap(name => library[name])); }
-    function checkNewSet(val) { if (val === 'NEW_SET') { const name = prompt("Enter New Set Name:"); if (name && !library[name.trim()]) { library[name.trim()] = []; save(); renderLibrary(); document.getElementById('set-selector').value = name.trim(); } else { document.getElementById('set-selector').value = ""; } } }
+    function deleteSet(n) { if(confirm(`Delete ${n}?`)) { delete library[n]; save(); renderLibrary(); showToast("Set Deleted"); } }
+    function showHome() { document.getElementById('home-screen').style.display='block'; document.getElementById('manage-area').style.display='none'; document.getElementById('quiz-area').style.display='none'; document.getElementById('results-area').style.display='none'; renderLibrary(); }
     
+    // --- EXPORT / IMPORT ---
+    function exportLibrary() { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(library)])); a.download = "full_backup.json"; a.click(); }
+    
+    function exportSingleSet(setName) {
+        const singleSetData = {};
+        singleSetData[setName] = library[setName];
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([JSON.stringify(singleSetData)]));
+        a.download = `${setName.replace(/\s+/g, '_')}_export.json`;
+        a.click();
+        showToast(`Exported ${setName}!`, "#3498db");
+    }
+
+    function importLibrary(e) { 
+        const f = e.target.files[0]; if(!f) return; 
+        const r = new FileReader(); 
+        r.onload=(ev)=>{ 
+            try { 
+                const data = JSON.parse(ev.target.result); 
+                Object.keys(data).forEach(k => {
+                    if (Array.isArray(data[k])) {
+                        if (library[k]) { if(confirm(`Merge into ${k}?`)) library[k] = [...library[k], ...data[k]]; }
+                        else library[k] = data[k];
+                    }
+                });
+                save(); renderLibrary(); showToast("Imported!", "#27ae60");
+            } catch(err) { showToast("Invalid JSON File!", "#e74c3c"); } 
+            e.target.value = ''; 
+        }; 
+        r.readAsText(f); 
+    }
+    
+    function toggleAll(c) { document.querySelectorAll('.set-checkbox').forEach(x => x.checked = c); }
+    function quizSelected() { const c = Array.from(document.querySelectorAll('.set-checkbox:checked')).map(x => x.dataset.set); if(!c.length) return showToast("Select sets!"); startQuiz(c.flatMap(x => library[x])); }
+    function checkNewSet(v) { if(v==='NEW_SET'){ const n = prompt("Enter New Set Name:"); if(n && !library[n.trim()]){ library[n.trim()]=[]; save(); renderLibrary(); document.getElementById('set-selector').value=n.trim(); } } }
+
     renderLibrary();
 </script>
 </body>
 </html>
-
