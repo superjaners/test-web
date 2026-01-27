@@ -17,7 +17,6 @@
         @keyframes toast-in { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         @keyframes toast-out { from { opacity: 1; } to { opacity: 0; transform: translateY(-10px); } }
 
-        /* Library List Layout */
         .set-item { display: grid; grid-template-columns: 40px 1fr auto; align-items: center; border-bottom: 1px solid #eee; padding: 12px 0; }
         .set-name-group { display: flex; align-items: center; gap: 8px; overflow: hidden; }
         .set-actions { display: flex; gap: 5px; padding-left: 10px; }
@@ -28,7 +27,7 @@
         .btn-green { background: var(--success); }
         .btn-delete { background: var(--accent); }
         .btn-alt { background: #7f8c8d; }
-        .btn-export { background: #3498db; } /* Blue for Export */
+        .btn-export { background: #3498db; }
         
         #quiz-area, #manage-area, #results-area { display: none; }
         .question-text { font-size: 3.5rem; text-align: center; margin: 30px 0; font-weight: bold; }
@@ -42,8 +41,12 @@
         #type-input { font-size: 1.5rem; text-align: center; padding: 15px; width: 80%; max-width: 400px; border: 3px solid var(--primary); border-radius: 8px 0 0 8px; }
         .btn-submit { border-radius: 0 8px 8px 0; padding: 0 25px; font-size: 1.1rem; }
 
-        .wrong-list { margin-top: 20px; text-align: left; background: #fff5f5; padding: 15px; border-radius: 8px; border: 1px solid #feb2b2; max-height: 250px; overflow-y: auto; }
-        .wrong-item { border-bottom: 1px solid #fed7d7; padding: 8px 0; display: flex; justify-content: space-between; }
+        .wrong-list { margin-top: 20px; text-align: left; background: #fff; padding: 0; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; max-height: 400px; overflow-y: auto; }
+        .wrong-item { border-bottom: 1px solid #eee; padding: 15px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; align-items: center; font-size: 0.9rem; }
+        .wrong-item:last-child { border-bottom: none; }
+        .label-red { color: var(--accent); font-weight: bold; }
+        .label-green { color: var(--success); font-weight: bold; }
+
         table { width: 100%; border-collapse: collapse; margin-top: 15px; }
         th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
     </style>
@@ -110,9 +113,9 @@
 
     <div id="results-area" class="card" style="text-align: center;">
         <h2>Quiz Results</h2>
-        <div style="font-size: 3rem; margin: 20px 0;" id="final-score-text"></div>
+        <div style="font-size: 3rem; margin: 10px 0;" id="final-score-text"></div>
         <div id="mistakes-container">
-            <h3>Review Mistakes:</h3>
+            <h3 style="text-align:left">Review Mistakes:</h3>
             <div class="wrong-list" id="wrong-list"></div>
         </div>
         <button class="btn btn-green" onclick="showHome()" style="margin-top:20px; padding: 15px 40px; font-size: 1rem;">Back to Home</button>
@@ -120,7 +123,7 @@
 
     <div id="manage-area" class="card">
         <h2 id="manage-title">Edit Set</h2>
-        <div style="max-height: 400px; overflow-y: auto;"><table><thead><tr><th>Kanji</th><th>Hiragana</th><th>English</th><th>Action</th></tr></thead><tbody id="manage-body"></tbody></table></div>
+        <div style="max-height: 400px; overflow-y: auto;"><table id="manage-table"><thead><tr><th>Kanji</th><th>Hiragana</th><th>English</th><th>Action</th></tr></thead><tbody id="manage-body"></tbody></table></div>
         <div style="margin-top: 20px;"><button class="btn" onclick="showHome()">Close & Save</button></div>
     </div>
 
@@ -144,21 +147,12 @@
         Object.keys(library).forEach(n => {
             const opt = document.createElement('option'); opt.value = n; opt.innerText = n; s.appendChild(opt);
             const d = document.createElement('div'); d.className = 'set-item';
-            d.innerHTML = `
-                <input type="checkbox" class="set-checkbox" data-set="${n}">
-                <div class="set-name-group"><strong>${n}</strong> <span style="color:#888">(${library[n].length})</span></div>
-                <div class="set-actions">
-                    <button class="btn btn-alt" onclick="manageSet('${n}')">Edit</button>
-                    <button class="btn" onclick="startQuiz(library['${n}'])">Quiz</button>
-                    <button class="btn btn-export" onclick="exportSingleSet('${n}')">Export</button>
-                    <button class="btn btn-delete" onclick="deleteSet('${n}')">Del</button>
-                </div>`;
+            d.innerHTML = `<input type="checkbox" class="set-checkbox" data-set="${n}"><div class="set-name-group"><strong>${n}</strong> <span style="color:#888">(${library[n].length})</span></div><div class="set-actions"><button class="btn btn-alt" onclick="manageSet('${n}')">Edit</button><button class="btn" onclick="startQuiz(library['${n}'])">Quiz</button><button class="btn btn-export" onclick="exportSingleSet('${n}')">Export</button><button class="btn btn-delete" onclick="deleteSet('${n}')">Del</button></div>`;
             l.appendChild(d);
         });
         if (cur && library[cur]) s.value = cur;
     }
 
-    // --- LOGIC FUNCTIONS ---
     function getVal(w, type) {
         if (type === 'jp') return w.kanji ? `${w.kanji} (${w.furigana})` : w.furigana;
         if (type === 'eng') return w.english;
@@ -202,7 +196,7 @@
             }
             opts.sort(() => Math.random() - 0.5).forEach(o => {
                 const b = document.createElement('button'); b.className = 'option-btn'; b.innerText = o;
-                b.onclick = () => handleAnswer(o === correct, b);
+                b.onclick = () => handleAnswer(o === correct, b, o);
                 cont.appendChild(b);
             });
         }
@@ -210,14 +204,24 @@
 
     function submitTypeAnswer() {
         const input = document.getElementById('type-input');
-        handleAnswer(input.value.trim() === pool[curIdx].furigana, input);
+        handleAnswer(input.value.trim() === pool[curIdx].furigana, input, input.value.trim());
     }
 
-    function handleAnswer(isCorrect, element) {
+    function handleAnswer(isCorrect, element, userProvidedAnswer) {
         if (quizLocked) return;
         quizLocked = true;
+        const correctVal = document.getElementById('a-param').value === 'type-hi' ? pool[curIdx].furigana : getVal(pool[curIdx], document.getElementById('a-param').value);
+
         if (isCorrect) { element.classList.add('correct'); score++; } 
-        else { element.classList.add('wrong'); mistakes.push(pool[curIdx]); }
+        else { 
+            element.classList.add('wrong'); 
+            mistakes.push({
+                word: pool[curIdx],
+                userAnswer: userProvidedAnswer || "(No Answer)",
+                correctAnswer: correctVal,
+                question: document.getElementById('question-display').innerText
+            }); 
+        }
         setTimeout(() => {
             curIdx++;
             if (curIdx < pool.length) showQuestion();
@@ -233,9 +237,13 @@
         list.innerHTML = '';
         if (mistakes.length > 0) {
             document.getElementById('mistakes-container').style.display = 'block';
-            mistakes.forEach(w => {
+            mistakes.forEach(m => {
                 const item = document.createElement('div'); item.className = 'wrong-item';
-                item.innerHTML = `<span><strong>${w.kanji || w.furigana}</strong></span> <span>${w.furigana} - ${w.english}</span>`;
+                item.innerHTML = `
+                    <div><strong>Prompt:</strong><br>${m.question}</div>
+                    <div><span class="label-red">You said:</span><br>${m.userAnswer}</div>
+                    <div><span class="label-green">Correct:</span><br>${m.correctAnswer}</div>
+                `;
                 list.appendChild(item);
             });
         } else document.getElementById('mistakes-container').style.display = 'none';
@@ -262,21 +270,10 @@
 
     function uW(i,f,v){ library[currentEditingSet][i][f]=v; save(); }
     function dW(i){ library[currentEditingSet].splice(i,1); save(); manageSet(currentEditingSet); }
-    function deleteSet(n) { if(confirm(`Delete ${n}?`)) { delete library[n]; save(); renderLibrary(); showToast("Set Deleted"); } }
+    function deleteSet(n) { if(confirm(`Delete ${n}?`)) { delete library[n]; save(); renderLibrary(); } }
     function showHome() { document.getElementById('home-screen').style.display='block'; document.getElementById('manage-area').style.display='none'; document.getElementById('quiz-area').style.display='none'; document.getElementById('results-area').style.display='none'; renderLibrary(); }
-    
-    // --- EXPORT / IMPORT ---
     function exportLibrary() { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(library)])); a.download = "full_backup.json"; a.click(); }
-    
-    function exportSingleSet(setName) {
-        const singleSetData = {};
-        singleSetData[setName] = library[setName];
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(new Blob([JSON.stringify(singleSetData)]));
-        a.download = `${setName.replace(/\s+/g, '_')}_export.json`;
-        a.click();
-        showToast(`Exported ${setName}!`, "#3498db");
-    }
+    function exportSingleSet(setName) { const d = {}; d[setName] = library[setName]; const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(d)])); a.download = `${setName}_export.json`; a.click(); showToast(`Exported ${setName}`); }
 
     function importLibrary(e) { 
         const f = e.target.files[0]; if(!f) return; 
@@ -299,7 +296,7 @@
     
     function toggleAll(c) { document.querySelectorAll('.set-checkbox').forEach(x => x.checked = c); }
     function quizSelected() { const c = Array.from(document.querySelectorAll('.set-checkbox:checked')).map(x => x.dataset.set); if(!c.length) return showToast("Select sets!"); startQuiz(c.flatMap(x => library[x])); }
-    function checkNewSet(v) { if(v==='NEW_SET'){ const n = prompt("Enter New Set Name:"); if(n && !library[n.trim()]){ library[n.trim()]=[]; save(); renderLibrary(); document.getElementById('set-selector').value=n.trim(); } } }
+    function checkNewSet(v) { if(v==='NEW_SET'){ const n = prompt("Name:"); if(n && !library[n.trim()]){ library[n.trim()]=[]; save(); renderLibrary(); document.getElementById('set-selector').value=n.trim(); } } }
 
     renderLibrary();
 </script>
