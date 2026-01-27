@@ -108,7 +108,7 @@
                 <button class="btn btn-green btn-submit" onclick="submitTypeAnswer()">Submit</button>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 30px;"><button class="btn btn-alt" onclick="showHome()">Quit Quiz</button></div>
+        <div style="text-align: center; margin-top: 30px;"><button class="btn btn-alt" onclick="showHome()">Quit</button></div>
     </div>
 
     <div id="results-area" class="card" style="text-align: center;">
@@ -118,7 +118,7 @@
             <h3 style="text-align:left">Review Mistakes:</h3>
             <div class="wrong-list" id="wrong-list"></div>
         </div>
-        <button class="btn btn-green" onclick="showHome()" style="margin-top:20px; padding: 15px 40px; font-size: 1rem;">Back to Home</button>
+        <button class="btn btn-green" onclick="showHome()" style="margin-top:20px; padding: 15px 40px; font-size: 1rem;">Home</button>
     </div>
 
     <div id="manage-area" class="card">
@@ -273,7 +273,7 @@
     function deleteSet(n) { if(confirm(`Delete ${n}?`)) { delete library[n]; save(); renderLibrary(); } }
     function showHome() { document.getElementById('home-screen').style.display='block'; document.getElementById('manage-area').style.display='none'; document.getElementById('quiz-area').style.display='none'; document.getElementById('results-area').style.display='none'; renderLibrary(); }
     function exportLibrary() { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(library)])); a.download = "full_backup.json"; a.click(); }
-    function exportSingleSet(setName) { const d = {}; d[setName] = library[setName]; const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(d)])); a.download = `${setName}_export.json`; a.click(); showToast(`Exported ${setName}`); }
+    function exportSingleSet(setName) { const d = {}; d[setName] = library[setName]; const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(d)])); a.download = `${setName}.json`; a.click(); showToast(`Exported ${setName}`); }
 
     function importLibrary(e) { 
         const f = e.target.files[0]; if(!f) return; 
@@ -302,3 +302,4 @@
 </script>
 </body>
 </html>
+
