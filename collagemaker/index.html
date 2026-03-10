@@ -3,56 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Square Collage Creator</title>
+    <title>Pro Collage & Title Creator</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; background: #eceff1; padding: 20px; color: #333; }
-        .controls { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
-        .grid-container { display: grid; gap: 12px; background: #cfd8dc; padding: 12px; border-radius: 8px; }
+        :root { --accent: #2196f3; --bg: #eceff1; }
+        body { font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; background: var(--bg); padding: 20px; color: #333; margin: 0; }
+        
+        .main-container { display: flex; gap: 20px; max-width: 1200px; width: 100%; flex-wrap: wrap; justify-content: center; }
+        .sidebar { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 300px; display: flex; flex-direction: column; gap: 12px; height: fit-content; }
+        .preview-area { flex: 1; display: flex; flex-direction: column; align-items: center; }
+
+        .grid-outer { background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center; }
+        .grid-container { display: grid; background: #cfd8dc; transition: all 0.3s; }
         
         .slot { 
-            width: 200px; height: 200px; background: #fff; border: 2px dashed #90a4ae; 
+            width: 180px; height: 180px; background: #fff; border: 1px solid #ddd; 
             display: flex; align-items: center; justify-content: center; overflow: hidden; 
-            position: relative; transition: border 0.2s; user-select: none; touch-action: none;
+            position: relative; user-select: none; touch-action: none;
         }
-        .slot.selected { border-color: #2196f3; border-style: solid; box-shadow: 0 0 8px rgba(33, 150, 243, 0.5); background: #f0f7ff; }
+        .slot.selected { outline: 3px solid var(--accent); z-index: 5; box-shadow: 0 0 15px rgba(33, 150, 243, 0.4); }
         
         .img-wrapper { width: 100%; height: 100%; cursor: move; display: none; position: relative; }
-        .img-wrapper img { pointer-events: none; position: absolute; top: 50%; left: 50%; transform-origin: center center; }
+        .img-wrapper img { pointer-events: none; position: absolute; top: 50%; left: 50%; transform-origin: center; }
         
-        /* HIDDEN BY DEFAULT: Only shows when slot is .has-image AND .selected */
-        .slot-ui { 
-            position: absolute; bottom: 5px; left: 5%; width: 90%; 
-            display: none; flex-direction: column; background: rgba(255,255,255,0.9); 
-            padding: 4px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 10; 
-        }
+        .slot-ui { position: absolute; bottom: 5px; left: 5%; width: 90%; display: none; background: rgba(255,255,255,0.9); padding: 4px; border-radius: 4px; z-index: 10; }
         .slot.has-image.selected .slot-ui { display: flex; }
-        
-        .slot.has-image .img-wrapper { display: block; }
         .slot.has-image .placeholder-text { display: none; }
+        .slot.has-image .img-wrapper { display: block; }
 
-        button { padding: 10px 20px; cursor: pointer; background: #2196f3; color: white; border: none; border-radius: 6px; font-weight: 600; }
+        .control-group { display: flex; flex-direction: column; gap: 3px; }
+        .control-row { display: flex; gap: 10px; align-items: center; }
+        label { font-size: 0.75em; font-weight: 700; color: #546e7a; text-transform: uppercase; }
+        input[type="text"], input[type="number"], input[type="color"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; width: 100%; box-sizing: border-box; }
+        button { padding: 12px; cursor: pointer; background: var(--accent); color: white; border: none; border-radius: 6px; font-weight: 600; transition: 0.2s; margin-top: 5px; }
+        button:hover { background: #1976d2; }
         .btn-copy { background: #4caf50; }
-        .btn-copy.copied { background: #a5d6a7; }
         canvas { display: none; }
-        .hint { margin-bottom: 15px; color: #666; font-size: 0.9em; }
+        .title-preview { width: 100%; text-align: center; font-weight: bold; overflow: hidden; display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
 <body>
 
-    <h2>Collage Creator</h2>
-    <div class="hint">Focus Square to Zoom • Double-click to Upload • Drag to Position</div>
+    <h2 style="margin-bottom: 20px;">Pro Collage Designer</h2>
 
-    <div class="controls">
-        <label>Grid: <input type="number" id="gridInput" value="2" min="1" max="5"></label>
-        <label>Res (px): <input type="number" id="resInput" value="1080"></label>
-        <button onclick="updateGrid()" style="background: #607d8b;">Apply Settings</button>
-    </div>
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="control-group">
+                <label>Grid Dimensions</label>
+                <input type="number" id="gridInput" value="2" min="1" max="6" onchange="updateGrid()">
+            </div>
+            <div class="control-group">
+                <label>Image Gap</label>
+                <input type="range" id="gapInput" min="0" max="20" value="5" oninput="updateGridStyles()">
+            </div>
+            <hr style="width:100%; border:0; border-top:1px solid #eee;">
+            
+            <div class="control-group">
+                <label>Header Title</label>
+                <input type="text" id="headerInput" placeholder="Header..." oninput="updateTitlePreview()">
+                <div class="control-row">
+                    <label style="font-size: 0.6em;">Size</label>
+                    <input type="range" id="headerSizeInput" min="10" max="80" value="24" oninput="updateTitlePreview()">
+                </div>
+            </div>
 
-    <div id="collageGrid" class="grid-container"></div>
+            <div class="control-group">
+                <label>Footer Title</label>
+                <input type="text" id="footerInput" placeholder="Footer..." oninput="updateTitlePreview()">
+                <div class="control-row">
+                    <label style="font-size: 0.6em;">Size</label>
+                    <input type="range" id="footerSizeInput" min="10" max="80" value="24" oninput="updateTitlePreview()">
+                </div>
+            </div>
 
-    <div style="margin-top: 25px; display: flex; gap: 15px;">
-        <button onclick="exportCollage('download')">Download PNG</button>
-        <button id="copyBtn" class="btn-copy" onclick="exportCollage('clipboard')">Copy to Clipboard</button>
+            <div class="control-group">
+                <label>Text Area Padding</label>
+                <input type="number" id="paddingInput" value="60" oninput="updateGridStyles()">
+            </div>
+            <div class="control-group">
+                <label>Background Color</label>
+                <input type="color" id="bgColorInput" value="#ffffff" oninput="updateGridStyles()">
+            </div>
+            <hr style="width:100%; border:0; border-top:1px solid #eee;">
+            <div class="control-group">
+                <label>Export Resolution</label>
+                <input type="number" id="resInput" value="1080">
+            </div>
+            <button onclick="exportCollage('download')">Download PNG</button>
+            <button id="copyBtn" class="btn-copy" onclick="exportCollage('clipboard')">Copy to Clipboard</button>
+        </div>
+
+        <div class="preview-area">
+            <div id="captureArea" class="grid-outer">
+                <div id="headerPrev" class="title-preview"></div>
+                <div id="collageGrid" class="grid-container"></div>
+                <div id="footerPrev" class="title-preview"></div>
+            </div>
+            <p style="font-size: 0.8em; color: #888; margin-top: 15px;">Focus • Upload • Pan • <b>Independent Font Control</b></p>
+        </div>
     </div>
 
     <canvas id="exportCanvas"></canvas>
@@ -62,76 +109,94 @@
         const gridContainer = document.getElementById('collageGrid');
         const fileInput = document.getElementById('fileInput');
         let selectedIndex = 0; 
-        const state = {}; 
+        let state = {}; 
 
         function updateGrid() {
-            const size = document.getElementById('gridInput').value;
+            const size = parseInt(document.getElementById('gridInput').value);
+            const totalSlots = size * size;
+            Object.keys(state).forEach(key => { if (parseInt(key) >= totalSlots) delete state[key]; });
             gridContainer.innerHTML = '';
             gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-            for (let i = 0; i < size * size; i++) { createSlot(i); }
+            for (let i = 0; i < totalSlots; i++) {
+                if (!state[i]) state[i] = { img: null, x: 0, y: 0, zoom: 1, baseScale: 1, isDragging: false };
+                createSlotElement(i);
+            }
+            updateGridStyles();
         }
 
-        function createSlot(i) {
+        function createSlotElement(i) {
             const slot = document.createElement('div');
-            slot.className = 'slot' + (i === 0 ? ' selected' : '');
+            slot.className = 'slot' + (i === selectedIndex ? ' selected' : '');
+            if (state[i].img) slot.classList.add('has-image');
             slot.dataset.index = i;
-            slot.innerHTML = `<div class="placeholder-text" style="font-size:11px; color:#999; text-align:center">Click: Focus<br>DBL Click: Upload</div>
-                              <div class="img-wrapper"><img id="img-${i}"></div>
-                              <div class="slot-ui"><input type="range" min="1" max="4" step="0.01" value="1" id="zoom-${i}"></div>`;
-            
-            state[i] = { img: null, x: 0, y: 0, zoom: 1, baseScale: 1, isDragging: false, startX: 0, startY: 0 };
-
+            slot.innerHTML = `
+                <div class="placeholder-text" style="font-size:10px; color:#aaa;">UPLOAD</div>
+                <div class="img-wrapper"><img id="img-${i}" src="${state[i].img ? state[i].img.src : ''}"></div>
+                <div class="slot-ui"><input type="range" min="1" max="4" step="0.01" value="${state[i].zoom}" id="zoom-${i}"></div>
+            `;
             slot.onclick = () => selectSlot(i);
             slot.ondblclick = () => { selectSlot(i); fileInput.click(); };
-            
             const zoomInput = slot.querySelector('input');
             zoomInput.onclick = (e) => e.stopPropagation();
-            zoomInput.oninput = (e) => {
-                state[i].zoom = parseFloat(e.target.value);
-                constrainAndApply(i);
-            };
-
+            zoomInput.oninput = (e) => { state[i].zoom = parseFloat(e.target.value); constrainAndApply(i); };
             slot.onmousedown = (e) => {
                 if (!state[i].img) return;
                 state[i].isDragging = true;
                 state[i].startX = e.clientX - state[i].x;
                 state[i].startY = e.clientY - state[i].y;
             };
-
-            window.addEventListener('mousemove', (e) => {
-                if (!state[i].isDragging) return;
-                state[i].x = e.clientX - state[i].startX;
-                state[i].y = e.clientY - state[i].startY;
-                constrainAndApply(i);
-            });
-
-            window.addEventListener('mouseup', () => state[i].isDragging = false);
             gridContainer.appendChild(slot);
+            if (state[i].img) constrainAndApply(i);
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            Object.keys(state).forEach(i => {
+                if (state[i].isDragging) {
+                    state[i].x = e.clientX - state[i].startX;
+                    state[i].y = e.clientY - state[i].startY;
+                    constrainAndApply(i);
+                }
+            });
+        });
+        window.addEventListener('mouseup', () => Object.keys(state).forEach(i => state[i].isDragging = false));
+
+        function updateGridStyles() {
+            const gap = document.getElementById('gapInput').value;
+            const bgColor = document.getElementById('bgColorInput').value;
+            const padding = document.getElementById('paddingInput').value;
+            gridContainer.style.gap = gap + 'px';
+            gridContainer.style.backgroundColor = gap > 0 ? '#cfd8dc' : 'transparent';
+            document.getElementById('captureArea').style.backgroundColor = bgColor;
+            document.getElementById('headerPrev').style.height = padding + 'px';
+            document.getElementById('footerPrev').style.height = padding + 'px';
+            updateTitlePreview();
+        }
+
+        function updateTitlePreview() {
+            const hPrev = document.getElementById('headerPrev');
+            const fPrev = document.getElementById('footerPrev');
+            hPrev.innerText = document.getElementById('headerInput').value;
+            fPrev.innerText = document.getElementById('footerInput').value;
+            hPrev.style.fontSize = document.getElementById('headerSizeInput').value + 'px';
+            fPrev.style.fontSize = document.getElementById('footerSizeInput').value + 'px';
         }
 
         function constrainAndApply(i) {
             if (!state[i].img) return;
-            const slotSize = 200;
             const finalScale = state[i].baseScale * state[i].zoom;
-            const currentW = state[i].img.width * finalScale;
-            const currentH = state[i].img.height * finalScale;
-            const limitX = Math.max(0, (currentW - slotSize) / 2);
-            const limitY = Math.max(0, (currentH - slotSize) / 2);
+            const limitX = Math.max(0, (state[i].img.width * finalScale - 180) / 2);
+            const limitY = Math.max(0, (state[i].img.height * finalScale - 180) / 2);
             state[i].x = Math.max(-limitX, Math.min(limitX, state[i].x));
             state[i].y = Math.max(-limitY, Math.min(limitY, state[i].y));
-            const imgEl = document.getElementById(`img-${i}`);
-            imgEl.style.transform = `translate(-50%, -50%) translate(${state[i].x}px, ${state[i].y}px) scale(${finalScale})`;
+            document.getElementById(`img-${i}`).style.transform = `translate(-50%, -50%) translate(${state[i].x}px, ${state[i].y}px) scale(${finalScale})`;
         }
 
         function selectSlot(index) {
             selectedIndex = index;
-            document.querySelectorAll('.slot').forEach(s => s.classList.remove('selected'));
-            const target = document.querySelector(`.slot[data-index="${index}"]`);
-            if(target) target.classList.add('selected');
+            document.querySelectorAll('.slot').forEach((s, idx) => s.classList.toggle('selected', idx === index));
         }
 
         fileInput.onchange = (e) => { if (e.target.files[0]) handleFile(e.target.files[0], selectedIndex); };
-        
         window.addEventListener('paste', (e) => {
             const item = Array.from(e.clipboardData.items).find(x => x.type.indexOf('image') !== -1);
             if (item) handleFile(item.getAsFile(), selectedIndex);
@@ -143,12 +208,11 @@
                 const img = new Image();
                 img.onload = () => {
                     state[index].img = img;
-                    const imgEl = document.getElementById(`img-${index}`);
-                    imgEl.src = e.target.result;
-                    state[index].baseScale = 200 / Math.min(img.width, img.height);
+                    state[index].baseScale = 180 / Math.min(img.width, img.height);
                     state[index].x = 0; state[index].y = 0; state[index].zoom = 1;
-                    document.querySelector(`.slot[data-index="${index}"]`).classList.add('has-image');
-                    document.getElementById(`zoom-${index}`).value = 1;
+                    const slot = document.querySelector(`.slot[data-index="${index}"]`);
+                    slot.classList.add('has-image');
+                    document.getElementById(`img-${index}`).src = img.src;
                     constrainAndApply(index);
                 };
                 img.src = e.target.result;
@@ -158,19 +222,40 @@
 
         async function exportCollage(mode) {
             const size = parseInt(document.getElementById('gridInput').value);
-            const totalRes = parseInt(document.getElementById('resInput').value);
+            const gap = parseInt(document.getElementById('gapInput').value);
+            const textPadding = parseInt(document.getElementById('paddingInput').value);
+            const exportW = parseInt(document.getElementById('resInput').value);
+            const hFontSize = parseInt(document.getElementById('headerSizeInput').value);
+            const fFontSize = parseInt(document.getElementById('footerSizeInput').value);
+            
+            const ratio = exportW / (size * 180 + (size - 1) * gap);
+            const slotSize = 180 * ratio;
+            const gapSize = gap * ratio;
+            const paddingSize = textPadding * ratio;
+            const exportH = (slotSize * size) + (gapSize * (size - 1)) + (paddingSize * 2);
+
             const canvas = document.getElementById('exportCanvas');
             const ctx = canvas.getContext('2d');
-            canvas.width = totalRes; canvas.height = totalRes;
-            const slotSize = totalRes / size;
-            ctx.fillStyle = "white";
-            ctx.fillRect(0, 0, totalRes, totalRes);
+            canvas.width = exportW; canvas.height = exportH;
 
+            ctx.fillStyle = document.getElementById('bgColorInput').value;
+            ctx.fillRect(0, 0, exportW, exportH);
+            ctx.fillStyle = "#333";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
+            // Header Text
+            ctx.font = `bold ${hFontSize * ratio}px Segoe UI, Arial`;
+            ctx.fillText(document.getElementById('headerInput').value, exportW/2, paddingSize/2);
+
+            // Images
             for (let i = 0; i < size * size; i++) {
                 const s = state[i];
                 if (s.img) {
-                    const canvasX = (i % size) * slotSize;
-                    const canvasY = Math.floor(i / size) * slotSize;
+                    const col = i % size;
+                    const row = Math.floor(i / size);
+                    const canvasX = col * (slotSize + gapSize);
+                    const canvasY = paddingSize + row * (slotSize + gapSize);
                     ctx.save();
                     ctx.beginPath();
                     ctx.rect(canvasX, canvasY, slotSize, slotSize);
@@ -178,13 +263,18 @@
                     const baseScaleExport = slotSize / Math.min(s.img.width, s.img.height);
                     const drawW = s.img.width * baseScaleExport * s.zoom;
                     const drawH = s.img.height * baseScaleExport * s.zoom;
-                    const ratio = slotSize / 200; 
-                    const offsetX = (canvasX + slotSize/2) + (s.x * ratio) - (drawW/2);
-                    const offsetY = (canvasY + slotSize/2) + (s.y * ratio) - (drawH/2);
+                    const moveRatio = slotSize / 180;
+                    const offsetX = (canvasX + slotSize/2) + (s.x * moveRatio) - (drawW/2);
+                    const offsetY = (canvasY + slotSize/2) + (s.y * moveRatio) - (drawH/2);
                     ctx.drawImage(s.img, offsetX, offsetY, drawW, drawH);
                     ctx.restore();
                 }
             }
+
+            // Footer Text
+            ctx.font = `bold ${fFontSize * ratio}px Segoe UI, Arial`;
+            ctx.fillText(document.getElementById('footerInput').value, exportW/2, exportH - paddingSize/2);
+
             if (mode === 'download') {
                 const link = document.createElement('a');
                 link.download = 'collage.png';
@@ -194,8 +284,8 @@
                 canvas.toBlob(blob => {
                     navigator.clipboard.write([new ClipboardItem({"image/png": blob})]);
                     const btn = document.getElementById('copyBtn');
-                    btn.classList.add('copied');
-                    setTimeout(() => btn.classList.remove('copied'), 500);
+                    btn.style.background = "#a5d6a7";
+                    setTimeout(() => btn.style.background = "#4caf50", 500);
                 });
             }
         }
