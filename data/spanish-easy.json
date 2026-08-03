@@ -1,0 +1,22 @@
+[
+  { "question": "feliz", "answer": "happy", "synonym": "contento" },
+  { "question": "triste", "answer": "sad", "synonym": "deprimido" },
+  { "question": "grande", "answer": "big", "synonym": "enorme" },
+  { "question": "pequeño", "answer": "small", "synonym": "chico" },
+  { "question": "rápido", "answer": "fast", "synonym": "veloz" },
+  { "question": "despacio", "answer": "slow", "synonym": "lento" },
+  { "question": "bonito", "answer": "pretty", "synonym": "hermoso" },
+  { "question": "fácil", "answer": "easy", "synonym": "sencillo" },
+  { "question": "difícil", "answer": "difficult", "synonym": "complicado" },
+  { "question": "empezar", "answer": "to start", "synonym": "comenzar" },
+  { "question": "terminar", "answer": "to finish", "synonym": "acabar" },
+  { "question": "casa", "answer": "house", "synonym": "hogar" },
+  { "question": "amigo", "answer": "friend", "synonym": "compañero" },
+  { "question": "escuchar", "answer": "to listen", "synonym": "oír" },
+  { "question": "mirar", "answer": "to look", "synonym": "ver" },
+  { "question": "hablar", "answer": "to speak", "synonym": "conversar" },
+  { "question": "frío", "answer": "cold", "synonym": "helado" },
+  { "question": "caliente", "answer": "hot", "synonym": "cálido" },
+  { "question": "inteligente", "answer": "smart", "synonym": "listo" },
+  { "question": "sinónimo", "answer": "synonym", "synonym": "equivalente" }
+]
