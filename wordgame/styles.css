@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: gakuBold;
+    src: url(../fonts/IBMPlexSansJP-Bold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: gaku;
+    src: url(../fonts/IBMPlexSansJP-Medium.ttf) format("truetype");
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgb(46, 255, 175), rgb(19, 194, 141));
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+#hint {
+    font-size: clamp(16px, 1.5vw, 32px);
+    font-family: gaku;
+    color: white;
+    text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.15);
+    white-space: pre-line;
+}
+
+#question {
+    font-style: gakuBold;
+    font-size: clamp(32px, 3.4vw, 96px);
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.15);
+}
+
+#synonym {
+    font-size: clamp(16px, 1.5vw, 32px);
+    font-family: gaku;
+    color: white;
+    text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.15);
+    margin-bottom: 32px;
+}
+
+#answer {
+    width: clamp(360px, 3vw, 480px);
+    height: clamp(32px, 2.5vw, 64px);
+    font-size: clamp(30px, 2.4vw, 60px);
+}
+
+#submit {
+    margin-top: 32px;
+    width: clamp(72px, 5vw, 144px);
+    height: clamp(24px, 2vw, 48px);
+    font-size: clamp(14px, 1vw, 30px);
+    font-family: gaku;
+    padding: 4px;
+}
