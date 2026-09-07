@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classic Space Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+  <style>
+    :root {
+      --accent-color: #ff9933;
+      --box-bg-color: #fff8f0;
+      --nav-header-color: #003366;
+    }
+
+    body {
+      background-color: #e5e5e5;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      margin: 0;
+      padding: 0;
+    }
+
+    #editor-panel {
+      background: #000;
+      color: #fff;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+      border-bottom: 2px solid var(--accent-color);
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+
+    #editor-panel label {
+      font-weight: bold;
+    }
+
+    .btn-action {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .btn-action:hover {
+      filter: brightness(0.9);
+    }
+
+    #exit-preview-btn {
+      display: none;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 2000;
+      background: #000;
+      color: #fff;
+      border: 1px solid var(--accent-color);
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 11px;
+      border-radius: 3px;
+    }
+
+    body.preview-mode #editor-panel {
+      display: none !important;
+    }
+
+	body.preview-mode .friend-actions,
+	body.preview-mode .hide-toggle,
+	body.preview-mode #add-friend-btn {
+  	display: none !important;
+	}
+
+    body.preview-mode #exit-preview-btn {
+      display: block;
+    }
+
+    body.preview-mode [contenteditable="true"] {
+      outline: none !important;
+      background-color: transparent !important;
+    }
+
+    body.preview-mode .friend-actions,
+    body.preview-mode .hide-toggle {
+      display: none !important;
+    }
+
+    .navbar {
+      background-color: var(--nav-header-color);
+      color: #ffffff;
+      padding: 8px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    .container {
+      width: 800px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border: 1px solid var(--nav-header-color);
+      padding: 15px;
+      display: flex;
+      gap: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .left-column {
+      width: 300px;
+    }
+
+    .right-column {
+      width: 480px;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin: 0 0 10px 0;
+      text-align: center;
+    }
+
+    .section-header {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      font-weight: bold;
+      padding: 3px 5px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sub-header {
+      background-color: var(--nav-header-color);
+      color: #ffffff;
+      font-weight: bold;
+      padding: 3px 5px;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    .profile-pic-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    .profile-pic-container img {
+      width: 170px;
+      height: 200px;
+      object-fit: cover;
+      border: 1px solid #000;
+      display: block;
+    }
+
+    .status-box {
+      border: 1px solid var(--accent-color);
+      padding: 8px;
+      margin-bottom: 15px;
+      background-color: var(--box-bg-color);
+      position: relative;
+    }
+
+    .contact-box {
+      border: 2px solid var(--accent-color);
+      margin-bottom: 15px;
+    }
+
+    .contact-box table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .contact-box td {
+      padding: 5px;
+      text-align: center;
+      background-color: var(--box-bg-color);
+      border: 1px solid #ffffff;
+    }
+
+    .contact-box a {
+      color: var(--nav-header-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .interests-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .interests-table td {
+      padding: 3px;
+      vertical-align: top;
+    }
+
+    .interests-table td.label {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      font-weight: bold;
+      width: 30%;
+    }
+
+    .interests-table td.value {
+      background-color: var(--box-bg-color);
+    }
+
+    .music-player-box {
+      border: 2px solid var(--accent-color);
+      background-color: var(--box-bg-color);
+      padding: 10px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .player-header {
+      font-weight: bold;
+      color: var(--nav-header-color);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .song-title-display {
+      font-weight: bold;
+      color: #cc0000;
+      margin-bottom: 8px;
+      font-size: 11px;
+    }
+
+    audio {
+      width: 100%;
+      height: 32px;
+      outline: none;
+    }
+
+    .blurb-box {
+      margin-bottom: 20px;
+    }
+
+    .friend-space {
+      margin-top: 20px;
+    }
+
+    .friend-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .friend-card {
+      position: relative;
+      background: var(--box-bg-color);
+      padding: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .friend-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .friend-card .friend-name {
+      display: block;
+      color: var(--nav-header-color);
+      font-weight: bold;
+      margin-bottom: 5px;
+      word-break: break-word;
+    }
+
+    .friend-actions {
+      margin-top: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .friend-actions label, .friend-actions button {
+      font-size: 9px;
+      cursor: pointer;
+      background: #eee;
+      border: 1px solid #ccc;
+      padding: 2px;
+    }
+
+    .friend-actions button {
+      background: #ffdddd;
+      color: #990000;
+      border-color: #ffaaaa;
+    }
+
+    [contenteditable="true"] {
+      outline: 1px dashed var(--accent-color);
+      padding: 2px;
+    }
+
+    [contenteditable="true"]:focus {
+      outline: 2px solid var(--accent-color);
+      background-color: #fffdee;
+    }
+
+    .hideable {
+      position: relative;
+    }
+
+    .hideable:hover .hide-toggle {
+      opacity: 1;
+    }
+
+    .hide-toggle {
+      position: absolute;
+      right: 0;
+      top: -12px;
+      background: #cc0000;
+      color: #ffffff;
+      font-size: 8px;
+      padding: 1px 4px;
+      cursor: pointer;
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      z-index: 10;
+    }
+
+    .is-hidden {
+      display: none !important;
+    }
+
+    #crop-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 3000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .crop-container {
+      max-width: 500px;
+      max-height: 400px;
+      background: #fff;
+      padding: 10px;
+    }
+
+    .crop-actions {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .crop-actions button {
+      padding: 8px 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="editor-panel">
+    <div>
+      <label>Profile Pic:</label>
+      <input type="file" id="pic-upload" accept="image/*">
+    </div>
+    <div>
+      <label>Background Image:</label>
+      <input type="file" id="bg-upload" accept="image/*">
+    </div>
+    <div>
+      <label>Page BG:</label>
+      <input type="color" id="bg-color-picker" value="#e5e5e5">
+    </div>
+    <div>
+      <label>Accent Color:</label>
+      <input type="color" id="accent-color-picker" value="#ff9933">
+    </div>
+    <div>
+      <label>Box BG:</label>
+      <input type="color" id="box-bg-picker" value="#fff8f0">
+    </div>
+    <div>
+      <label>Music Track:</label>
+      <input type="file" id="music-upload" accept="audio/*">
+    </div>
+    <button class="btn-action" id="restore-hidden-btn" style="background:#555;">Restore Hidden</button>
+    <button class="btn-action" id="toggle-preview">Preview Mode</button>
+  </div>
+
+  <button id="exit-preview-btn">Edit Mode</button>
+
+  <div class="navbar">
+    <a href="#">Otakuz Club</a> | <a href="#">Home</a> | <a href="#">Browse</a> | <a href="#">Search</a> | <a href="#">Invite</a> | <a href="#">Favorites</a> | <a href="#">Forum</a> | <a href="#">Groups</a> | <a href="#">Music</a> | <a href="#">Sign Out</a>
+  </div>
+
+  <div class="container">
+    
+    <div class="left-column">
+      <h1 id="user-name" contenteditable="true" spellcheck="false">Tom</h1>
+      
+      <div class="profile-pic-container">
+        <img id="profile-img" src="https://via.placeholder.com/170x200?text=Profile+Picture" alt="Profile Picture">
+      </div>
+
+      <div class="status-box hideable" id="field-status-box">
+        <span class="hide-toggle" onclick="hideField('field-status-box')">Hide</span>
+        "<span id="status-text" contenteditable="true" spellcheck="false">Building the web, one friend at a time!</span>"<br><br>
+        <strong>Mood:</strong> <span id="mood-text" contenteditable="true" spellcheck="false">Nostalgic</span>
+      </div>
+
+      <p>
+        <span class="hideable" id="field-gender">
+          <span class="hide-toggle" onclick="hideField('field-gender')">Hide</span>
+          <span id="user-gender" contenteditable="true" spellcheck="false">Male</span><br>
+        </span>
+        <span class="hideable" id="field-age">
+          <span class="hide-toggle" onclick="hideField('field-age')">Hide</span>
+          <span id="user-age" contenteditable="true" spellcheck="false">27</span> years old<br>
+        </span>
+        <span class="hideable" id="field-location">
+          <span class="hide-toggle" onclick="hideField('field-location')">Hide</span>
+          <span id="user-location" contenteditable="true" spellcheck="false">Los Angeles, CALIFORNIA</span><br>
+        </span>
+        United States
+      </p>
+
+      <p>
+        <label>View My:</label>
+        <a href="#" style="color: var(--nav-header-color); font-weight: bold;">Pics</a> | 
+        <a href="#" style="color: var(--nav-header-color); font-weight: bold;">Videos</a>
+      </p>
+
+      <div class="contact-box">
+        <div class="section-header"><span>Contacting <span class="profile-name-label">Tom</span></span></div>
+        <table>
+          <tr>
+            <td><a href="#">Send Message</a></td>
+            <td><a href="#">Forward to Friend</a></td>
+          </tr>
+          <tr>
+            <td><a href="#">Add to Friends</a></td>
+            <td><a href="#">Add to Favorites</a></td>
+          </tr>
+          <tr>
+            <td><a href="#">Instant Message</a></td>
+            <td><a href="#">Block User</a></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section-header"><span><span class="profile-name-label">Tom</span>'s Interests</span></div>
+      <table class="interests-table">
+        <tr class="hideable" id="field-interest-general">
+          <td class="label">General <span class="hide-toggle" onclick="hideField('field-interest-general')">Hide</span></td>
+          <td class="value" id="interest-general" contenteditable="true" spellcheck="false">Internet, Photography, Coding, HTML, Music, Hanging out.</td>
+        </tr>
+        <tr class="hideable" id="field-interest-music">
+          <td class="label">Music <span class="hide-toggle" onclick="hideField('field-interest-music')">Hide</span></td>
+          <td class="value" id="interest-music" contenteditable="true" spellcheck="false">The Postal Service, Blink-182, Jimmy Eat World, Death Cab for Cutie.</td>
+        </tr>
+        <tr class="hideable" id="field-interest-movies">
+          <td class="label">Movies <span class="hide-toggle" onclick="hideField('field-interest-movies')">Hide</span></td>
+          <td class="value" id="interest-movies" contenteditable="true" spellcheck="false">The Matrix, Office Space, Donnie Darko.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="right-column">
+      
+      <div class="sub-header" style="font-size: 13px;"><span class="profile-name-label">Tom</span> is in your network</div>
+
+      <div class="music-player-box hideable" id="field-music-player">
+        <span class="hide-toggle" onclick="hideField('field-music-player')">Hide</span>
+        <div class="player-header">
+          <span>♫ My Music Player</span>
+        </div>
+        <div class="song-title-display">
+          Track: <span id="song-title" contenteditable="true" spellcheck="false">The Postal Service - Such Great Heights</span>
+        </div>
+        <audio id="audio-player" controls loop>
+          <source id="audio-source" src="" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <div class="blurb-box">
+        <div class="section-header"><span><span class="profile-name-label">Tom</span>'s Blurbs</span></div>
+        
+        <div class="hideable" id="field-about-me">
+          <span class="hide-toggle" onclick="hideField('field-about-me')">Hide</span>
+          <p style="color: var(--accent-color); font-weight: bold; margin-bottom: 2px;">About me:</p>
+          <div id="about-me-text" contenteditable="true" spellcheck="false">
+            <p>Hi, I'm <span class="profile-name-label">Tom</span>! Welcome to my profile page.</p>
+            <p>I like web design, photography, and music. Feel free to leave a comment or send me a message!</p>
+          </div>
+        </div>
+
+        <div class="hideable" id="field-meet" style="margin-top: 15px;">
+          <span class="hide-toggle" onclick="hideField('field-meet')">Hide</span>
+          <p style="color: var(--accent-color); font-weight: bold; margin-bottom: 2px;">Who I'd like to meet:</p>
+          <div id="meet-text" contenteditable="true" spellcheck="false">
+            <p>I'd like to meet everyone using this site!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="friend-space">
+        <div class="section-header">
+          <span><span class="profile-name-label">Tom</span>'s Friend Space</span>
+          <button class="btn-action" id="add-friend-btn" style="font-size: 10px; padding: 2px 6px;">+ Add Friend</button>
+        </div>
+        <p><strong><span class="profile-name-label">Tom</span> has <span id="friend-count" style="color: #cc0000;">0</span> Friends.</strong></p>
+        
+        <div class="friend-grid" id="friend-grid"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="crop-modal">
+    <div class="crop-container">
+      <img id="crop-image" src="" alt="Crop target">
+    </div>
+    <div class="crop-actions">
+      <button id="crop-save" style="background: var(--nav-header-color); color:#fff;">Apply Crop</button>
+      <button id="crop-cancel" style="background:#ccc;">Cancel</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+  <script>
+    let cropper = null;
+    let hiddenFields = [];
+    let friendsData = [
+      { id: '1', name: 'Sarah', img: 'https://via.placeholder.com/80?text=Sarah' },
+      { id: '2', name: 'Mark', img: 'https://via.placeholder.com/80?text=Mark' },
+      { id: '3', name: 'Jenny', img: 'https://via.placeholder.com/80?text=Jenny' },
+      { id: '4', name: 'Alex', img: 'https://via.placeholder.com/80?text=Alex' }
+    ];
+
+    function updateProfileName(newName) {
+      const cleanName = newName.trim() || 'Tom';
+      document.querySelectorAll('.profile-name-label').forEach(elem => {
+        elem.innerText = cleanName;
+      });
+    }
+
+    function hideField(fieldId) {
+      const element = document.getElementById(fieldId);
+      if (element) {
+        element.classList.add('is-hidden');
+        if (!hiddenFields.includes(fieldId)) {
+          hiddenFields.push(fieldId);
+          localStorage.setItem('myspace_hidden_fields', JSON.stringify(hiddenFields));
+        }
+      }
+    }
+
+    document.getElementById('restore-hidden-btn').addEventListener('click', () => {
+      hiddenFields.forEach(fieldId => {
+        const element = document.getElementById(fieldId);
+        if (element) element.classList.remove('is-hidden');
+      });
+      hiddenFields = [];
+      localStorage.removeItem('myspace_hidden_fields');
+    });
+
+    function renderFriends() {
+      const grid = document.getElementById('friend-grid');
+      grid.innerHTML = '';
+      document.getElementById('friend-count').innerText = friendsData.length;
+
+      friendsData.forEach((friend, index) => {
+        const card = document.createElement('div');
+        card.className = 'friend-card';
+        card.innerHTML = `
+          <span class="friend-name" contenteditable="true" spellcheck="false" data-index="${index}">${friend.name}</span>
+          <img src="${friend.img}" id="friend-img-${index}" alt="${friend.name}">
+          <div class="friend-actions">
+            <label>
+              Change Pic
+              <input type="file" accept="image/*" style="display:none" onchange="changeFriendImg(event, ${index})">
+            </label>
+            <button onclick="removeFriend(${index})">Delete</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      document.querySelectorAll('.friend-name').forEach(elem => {
+        elem.addEventListener('blur', (e) => {
+          const idx = e.target.getAttribute('data-index');
+          friendsData[idx].name = e.target.innerText;
+          saveFriends();
+        });
+      });
+    }
+
+    function saveFriends() {
+      localStorage.setItem('myspace_friends_data', JSON.stringify(friendsData));
+    }
+
+    function changeFriendImg(event, index) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          friendsData[index].img = e.target.result;
+          saveFriends();
+          renderFriends();
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function removeFriend(index) {
+      friendsData.splice(index, 1);
+      saveFriends();
+      renderFriends();
+    }
+
+    document.getElementById('add-friend-btn').addEventListener('click', () => {
+      const newFriend = {
+        id: Date.now().toString(),
+        name: 'New Friend',
+        img: 'https://via.placeholder.com/80?text=Friend'
+      };
+      friendsData.push(newFriend);
+      saveFriends();
+      renderFriends();
+    });
+
+    function loadSavedData() {
+      const editableIDs = ['user-name', 'status-text', 'mood-text', 'user-gender', 'user-age', 'user-location', 'interest-general', 'interest-music', 'interest-movies', 'about-me-text', 'meet-text', 'song-title'];
+      editableIDs.forEach(id => {
+        const savedText = localStorage.getItem('myspace_' + id);
+        if (savedText) document.getElementById(id).innerHTML = savedText;
+      });
+
+      const savedName = document.getElementById('user-name').innerText;
+      updateProfileName(savedName);
+
+      const savedPic = localStorage.getItem('myspace_profile_pic');
+      if (savedPic) document.getElementById('profile-img').src = savedPic;
+
+      const savedBgImg = localStorage.getItem('myspace_bg_img');
+      if (savedBgImg) document.body.style.backgroundImage = `url("${savedBgImg}")`;
+
+      const savedBgColor = localStorage.getItem('myspace_bg_color');
+      if (savedBgColor) {
+        document.body.style.backgroundColor = savedBgColor;
+        document.getElementById('bg-color-picker').value = savedBgColor;
+      }
+
+      const savedAccentColor = localStorage.getItem('myspace_accent_color');
+      if (savedAccentColor) {
+        document.documentElement.style.setProperty('--accent-color', savedAccentColor);
+        document.getElementById('accent-color-picker').value = savedAccentColor;
+      }
+
+      const savedBoxBgColor = localStorage.getItem('myspace_box_bg_color');
+      if (savedBoxBgColor) {
+        document.documentElement.style.setProperty('--box-bg-color', savedBoxBgColor);
+        document.getElementById('box-bg-picker').value = savedBoxBgColor;
+      }
+
+      const savedAudio = localStorage.getItem('myspace_audio_track');
+      if (savedAudio) {
+        const player = document.getElementById('audio-player');
+        player.src = savedAudio;
+      }
+
+      const savedHidden = localStorage.getItem('myspace_hidden_fields');
+      if (savedHidden) {
+        hiddenFields = JSON.parse(savedHidden);
+        hiddenFields.forEach(fieldId => {
+          const element = document.getElementById(fieldId);
+          if (element) element.classList.add('is-hidden');
+        });
+      }
+
+      const savedFriends = localStorage.getItem('myspace_friends_data');
+      if (savedFriends) {
+        friendsData = JSON.parse(savedFriends);
+      }
+      renderFriends();
+    }
+
+    document.querySelectorAll('[contenteditable="true"]').forEach(element => {
+      element.addEventListener('blur', () => {
+        localStorage.setItem('myspace_' + element.id, element.innerHTML);
+      });
+    });
+
+    const userNameElem = document.getElementById('user-name');
+    userNameElem.addEventListener('input', (e) => {
+      updateProfileName(e.target.innerText);
+    });
+
+    const picInput = document.getElementById('pic-upload');
+    const cropModal = document.getElementById('crop-modal');
+    const cropImage = document.getElementById('crop-image');
+
+    picInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          cropImage.src = event.target.result;
+          cropModal.style.display = 'flex';
+          
+          if (cropper) cropper.destroy();
+          cropper = new Cropper(cropImage, {
+            aspectRatio: 170 / 200,
+            viewMode: 1
+          });
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    document.getElementById('crop-save').addEventListener('click', function() {
+      if (cropper) {
+        const canvas = cropper.getCroppedCanvas({ width: 170, height: 200 });
+        const croppedDataUrl = canvas.toDataURL();
+        document.getElementById('profile-img').src = croppedDataUrl;
+        localStorage.setItem('myspace_profile_pic', croppedDataUrl);
+      }
+      cropModal.style.display = 'none';
+      picInput.value = '';
+    });
+
+    document.getElementById('crop-cancel').addEventListener('click', function() {
+      cropModal.style.display = 'none';
+      picInput.value = '';
+    });
+
+    document.getElementById('bg-upload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const bgDataUrl = event.target.result;
+          document.body.style.backgroundImage = `url("${bgDataUrl}")`;
+          localStorage.setItem('myspace_bg_img', bgDataUrl);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    document.getElementById('bg-color-picker').addEventListener('input', function(e) {
+      document.body.style.backgroundColor = e.target.value;
+      localStorage.setItem('myspace_bg_color', e.target.value);
+    });
+
+    document.getElementById('accent-color-picker').addEventListener('input', function(e) {
+      document.documentElement.style.setProperty('--accent-color', e.target.value);
+      localStorage.setItem('myspace_accent_color', e.target.value);
+    });
+
+    document.getElementById('box-bg-picker').addEventListener('input', function(e) {
+      document.documentElement.style.setProperty('--box-bg-color', e.target.value);
+      localStorage.setItem('myspace_box_bg_color', e.target.value);
+    });
+
+    document.getElementById('music-upload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const audioDataUrl = event.target.result;
+          const player = document.getElementById('audio-player');
+          player.src = audioDataUrl;
+          document.getElementById('song-title').innerText = file.name.replace(/\.[^/.]+$/, "");
+          localStorage.setItem('myspace_song-title', document.getElementById('song-title').innerText);
+          localStorage.setItem('myspace_audio_track', audioDataUrl);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    const toggleBtn = document.getElementById('toggle-preview');
+    const exitBtn = document.getElementById('exit-preview-btn');
+
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.add('preview-mode');
+    });
+
+    exitBtn.addEventListener('click', () => {
+      document.body.classList.remove('preview-mode');
+    });
+
+    window.addEventListener('DOMContentLoaded', loadSavedData);
+  </script>
+</body>
+</html>
